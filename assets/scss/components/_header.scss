@@ -1,0 +1,147 @@
+#wpc-header {
+	display: block;
+	background: $wpc-header-bg;
+	color: $wpc-header-color;
+	width: 100%;
+	height: $wpc-header-logo-height + ( $wpc-header-vert-padding * 2 );
+	position: absolute;
+	left: 0;
+	top: $wpc-banner-height;
+	z-index: 1000;
+	padding: $wpc-header-vert-padding;
+	border-top: 2px solid darken( $wpc-dark-blue, 5% );
+	border-bottom: 2px solid #ddd;
+	box-shadow: 0 0 15px 0 #333;
+	text-align: center;
+
+	a {
+		color: inherit;
+	}
+
+	.wpc-header-menu {
+		height: $wpc-header-menu-height;
+		color: inherit;
+
+		.menu {
+			@include reset-ul();
+			display: block;
+			text-align: left;
+			overflow: visible;
+			vertical-align: top;
+			font-size: $wpc-header-menu-font-size;
+			height: $wpc-header-menu-height;
+			line-height: $wpc-header-menu-height;
+
+			& > li {
+				display: inline-block;
+				height: $wpc-header-menu-height;
+				line-height: $wpc-header-menu-height;
+
+				& > a {
+					display: block;
+					padding: 0 10px;
+					text-decoration: none;
+					text-transform: uppercase;
+
+					&:hover {
+						background: darken( $wpc-header-bg, 3% );
+					}
+				}
+
+				&.has-submenu {
+					position: relative;
+
+					& > .submenu {
+						@include reset-ul();
+						display: block;
+						background: #fff;
+						position: absolute;
+						left: 4%;
+						top: 90%;
+						min-width: 92%;
+						height: auto;
+						line-height: 1.1;
+						text-align: left;
+						color: #222;
+						padding: 10px 0;
+						margin: 0;
+						opacity: 0;
+						transition: opacity ease-in 0.2s;
+
+						& > li {
+							height: auto;
+							line-height: inherit;
+							padding: 0;
+
+							& > a {
+								display: block;
+								padding: 5px 10px;
+								text-decoration: none;
+							}
+
+							&.current,
+							& > a:hover {
+								background: #eee;
+							}
+
+						}
+
+					}
+
+					&:hover {
+
+						& > .submenu {
+							opacity: 1;
+						}
+					}
+				}
+
+				&.current {
+
+					& > a {
+						background: darken( $wpc-header-bg, 8% );
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	.wpc-logo {
+		display: block;
+		background: url('../images/wpcampus-2017-logo-tagline-white.png') left center no-repeat;
+		background-size: $wpc-header-logo-width $wpc-header-logo-height;
+		width: $wpc-header-logo-width;
+		height: $wpc-header-logo-height;
+		margin: 0 auto;
+		vertical-align: middle;
+	}
+
+	.wpc-header-left,
+	.wpc-logo,
+	.wpc-header-right {
+		display: inline-block;
+	}
+
+	.wpc-header-left,
+	.wpc-header-right {
+		vertical-align: bottom;
+	}
+
+	.wpc-header-left {
+		padding-right: $wpc-header-logo-margin-side;
+
+		.menu {
+			text-align: right;
+		}
+
+	}
+
+	.wpc-header-right {
+		padding-left: $wpc-header-logo-margin-side;
+
+		.menu {
+			text-align: left;
+		}
+	}
+}

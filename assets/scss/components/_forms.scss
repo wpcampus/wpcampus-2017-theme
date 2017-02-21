@@ -1,0 +1,101 @@
+// Include our settings.
+@import '../settings';
+
+#wpc-main {
+
+	.gform_confirmation_message {
+		background: rgba( 0, 255, 0, 0.2 );
+		padding: 20px;
+	}
+
+	.gform_wrapper {
+		max-width: 100%;
+		margin: 0;
+		padding: 0;
+
+		input[type="text"],
+		textarea,
+		select {
+			border: 1px solid #eee;
+		}
+
+		input[type="text"] {
+			margin: 0 0 0.5em 0;
+
+			&.ginput_quantity {
+				display: inline-block;
+			}
+		}
+
+		input[type="radio"],
+		input[type="checkbox"] {
+			margin: 3px 0 8px .063em !important;
+		}
+
+		ul li {
+
+			&.gfield {
+				margin: 0 0 1em 0;
+			}
+		}
+
+		// Style the country field
+		#input_1_18_6_container {
+			margin: 0.5em 0 0 0;
+		}
+
+		.gfield_label {
+			font-size: 1em;
+			line-height: 1.4;
+			font-weight: 600 !important;
+		}
+
+		.top_label {
+
+			.gfield_description {
+				padding: 0 0 .625em 0;
+			}
+		}
+
+		.gform_footer {
+			padding: 0;
+			margin: 1.5em 0 0 0;
+
+			.gform_button {
+				background: $wpc-red;
+				width: 100%;
+				text-align: center;
+				text-transform: uppercase;
+				font-weight: 300;
+				color: #fff;
+				border: 0;
+				margin: 0;
+				padding: 15px;
+			}
+		}
+	}
+
+	/*#gform_wrapper_7 {
+		background: #f6f6f6;
+		padding: 20px;
+		margin: 30px 0 0 0;
+
+		.gform_fields {
+
+			li {
+
+				&.gsection {
+					margin-top: 35px;
+					border-top: 3px solid #ccc;
+					padding-top: 35px;
+
+					&:first-child {
+						margin-top: 0;
+						padding-top: 0;
+						border-top: 0;
+					}
+				}
+			}
+		}
+	}*/
+}

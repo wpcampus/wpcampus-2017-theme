@@ -1,0 +1,90 @@
+// Modify neat settings.
+$gutter: 3em;
+
+// Set the row width - this includes side padding
+//$row-width: 920px;
+
+// Widen the column gutter to 40px - default is 30
+//$column-gutter: 40px;
+
+// WordPress info
+$wpc-admin-bar-height: 46px;
+$wpc-admin-bar-height-desktop: 32px;
+$wpc-admin-bar-breakpoint: 782px;
+
+// Breakpoints
+$small-up: 40em;
+$medium-up: 55em;
+
+// COLORS
+$wpc-royal-blue: #1159bd;
+$wpc-red: #770000;
+$wpc-dark-blue: darken( #2e3641, 5% );
+$body-bg: #fafafa;
+$wpc-light-gray: #eee;
+
+// FONTS
+$open_sans: 'Open Sans', sans-serif;
+
+// Set the base font
+$body-font-family: $open_sans;
+$body-font-color: #222;
+
+// Containers
+/*$wpc-inside-padding-side: 25px;
+$wpc-inside-padding-side-desktop: 40px;
+$wpc-inside-padding-left: 100px;*/
+
+// Banner
+//$wpc-banner-padding-side: 40px;
+$wpc-banner-bg-color: $wpc-dark-blue; //#222;
+$wpc-banner-height: 30px;
+$wpc-banner-color: #fff;
+/*$wpc-banner-eduwapuu-width: 38px;
+$wpc-banner-eduwapuu-height: 45px;
+$wpc-banner-logo-width: 270px;
+$wpc-banner-logo-height: 45px;
+$wpc-banner-logo-width-desktop: 224px;
+$wpc-banner-logo-height-desktop: 24px;
+$wpc-banner-button-height: 40px;
+$wpc-banner-button-height-desktop: 32px;*/
+
+// Header
+$wpc-header-bg: $wpc-red;
+$wpc-header-color: #fff;
+$wpc-header-logo-width: 300px;
+$wpc-header-logo-height: 80px;
+$wpc-header-logo-margin-side: 30px;
+$wpc-header-vert-padding: 30px;
+$wpc-header-menu-height: 70px;
+$wpc-header-menu-font-size: 16px;
+$wpc-header-height: $wpc-header-logo-height + ( $wpc-header-vert-padding * 2 );
+
+	// Notifications
+$wpc-notif-icon-width: 28px;
+$wpc-notif-icon-height: 28px;
+$wpc-notif-padding: 20px;
+
+// Paragraphs
+$paragraph-line-height: 1.8;
+$paragraph-margin-vert: 1.8rem;
+
+// Lists
+$list-side-margin: 2.4rem;
+
+// Panels
+//$panel-border-size: 0;
+
+// Breadcrumbs
+//$crumb-border-size: 0;
+//$crumb-padding: 0;
+
+// Get Involved bar
+$wpc-get-involved-bg: $wpc-light-gray;
+$wpc-get-involved-height: 30px;
+
+// Footer
+$wpc-footer-bg-color: $wpc-dark-blue; // #333;
+$wpc-footer-color: #fff;
+$wpc-footer-font-size: 0.9em;
+$wpc-footer-line-height: 1.8;

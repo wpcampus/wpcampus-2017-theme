@@ -1,0 +1,72 @@
+a {
+	color: $wpc-royal-blue;
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 3.2rem;
+	line-height: 1;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+h3 {
+	margin: 0 0 1rem 0;
+}
+
+hr {
+	background: #e3e3e3;
+	border: 0;
+	height: 1px;
+	margin: 3rem 0;
+}
+
+p, ol, ul {
+	line-height: $paragraph-line-height;
+	margin: $paragraph-margin-vert 0;
+}
+
+ol, ul {
+	line-height: $paragraph-line-height;
+	margin: $paragraph-margin-vert 0 $paragraph-margin-vert $list-side-margin;
+	padding: 0;
+	list-style-position: outside;
+
+	li {
+		margin: 0;
+		padding: 0;
+	}
+
+	p + & {
+		margin-top: -0.5rem;
+	}
+}
+
+ul {
+
+	&.column-two {
+		margin-left: 2em;
+		overflow: auto;
+
+		li {
+			display: inline-block;
+			float: none;
+			width: 100%;
+
+			&:before {
+				content: '-';
+				font-weight: bold;
+				padding: 0 8px 0 0;
+				font-size: 1.1em;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+p, ol, ul {
+
+	h3 + & {
+		margin-top: 0;
+	}
+}

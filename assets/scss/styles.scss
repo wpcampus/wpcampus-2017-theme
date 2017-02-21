@@ -1,0 +1,197 @@
+// Include our settings
+@import "settings";
+
+// Include our dependencies
+@import "normalize";
+@import "bourbon";
+@import "neat";
+
+// Include our mixins
+@import "mixins";
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+html,
+body {
+	font-size: 100%;
+	height: 100%;
+}
+
+html{
+	box-sizing: border-box;
+}
+
+body {
+	background: $body-bg;
+	color: $body-font-color;
+	cursor: auto;
+	font-family: $body-font-family;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+// Hide these elements visibly, but make sure they're still viewable by screen readers
+.for-screen-reader {
+    @include for-screen-reader();
+}
+
+.inside {
+    @include outer-container;
+	//padding: 0 $wpc-inside-padding-side;
+
+	/*@media screen and (min-width: $small-up) {
+		//padding: 0 $wpc-inside-padding-side-desktop;
+	}*/
+}
+
+// Stylize the "Skip To Content" link
+#skip-to-content {
+    display: block;
+    position: fixed;
+    left: -1000px;
+    top: -1000px;
+    width: 0;
+    height: 0;
+    text-align: left;
+    overflow: hidden;
+    z-index: 1000000;
+
+    &:focus, &:active, &:hover {
+        left: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        background: $wpc-light-gray;
+        color: #000;
+        padding: 10px;
+    }
+}
+
+// Images
+img {
+	display: block;
+	margin: 2.2rem 0;
+
+	&.aligncenter {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+#wpc-wrapper {
+	height: 100%;
+}
+
+// Include basic typography styles
+@import "components/typography";
+
+// Include our banner
+@import "components/banner";
+
+// Include our header
+@import "components/header";
+
+// Include our hero
+@import "components/hero";
+
+/*.breadcrumbs-wrapper {
+    text-align: center;
+
+    .breadcrumbs {
+        display: inline-block;
+        width: auto;
+        background: none;
+        margin: 0;
+    }
+}*/
+
+/*.panel {
+    padding: 20px;
+
+    &.center {
+        text-align: center;
+    }
+
+    &.dark {
+        color: #fff;
+
+        * {
+            color: inherit;
+        }
+    }
+
+    &.coming-soon {
+        font-style: italic;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &.vote-on-new-name {
+        padding: 25px;
+    }
+
+    &.peach {
+        background: $peach;
+        color: #fff;
+    }
+
+    &.royal-blue {
+        background: $wpc-royal-blue;
+        color: #fff;
+
+        * {
+            color: inherit;
+        }
+    }
+
+    &.dark-blue {
+        background: $wpc-dark-blue;
+        color: #fff;
+
+        * {
+            color: inherit;
+        }
+    }
+
+    &.wpcampus-phil-tshirt {
+        background: #fff;
+        //border: 20px solid $panel-bg;
+        margin-right: -20px;
+    }
+
+    &.wpc-announce {
+        padding: 30px;
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 1.8em;
+            line-height: 1;
+            text-align: center;
+        }
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+}*/
+
+// Include the main styles
+@import "components/main";
+
+// Include the form styles
+@import "components/forms";
+
+// Include our footer
+@import "components/footer";

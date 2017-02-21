@@ -5,20 +5,4 @@
  * Version:			1.0
  * Author:			WPCampus Community
  * Author URI:		https://wpcampus.org/
- * Template:		twentyseventeen
  */
- 
- @import "../twentyseventeen/style.css";
- 
-#primary .page-header,
-#primary .entry-header {
-	display: none !important;
-}
-
-#primary article,
-#primary .page-content, 
-#primary .entry-content,
-#comments {
-	float: none !important;
-	width: auto !important;
-}
