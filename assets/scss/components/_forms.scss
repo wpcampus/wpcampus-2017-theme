@@ -29,7 +29,7 @@
 
 		input[type="radio"],
 		input[type="checkbox"] {
-			margin: 3px 0 8px .063em !important;
+			margin: 3px 8px 0 .063em !important;
 		}
 
 		ul li {
@@ -59,7 +59,7 @@
 
 		.gform_footer {
 			padding: 0;
-			margin: 1.5em 0 0 0;
+			margin: 2rem 0 0 0;
 
 			.gform_button {
 				background: $wpc-red;
@@ -71,6 +71,7 @@
 				border: 0;
 				margin: 0;
 				padding: 15px;
+				cursor: pointer;
 			}
 		}
 	}

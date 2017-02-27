@@ -1,5 +1,10 @@
 <?php
 
+// Don't print if we shouldnt' have a sidebar.
+if ( ! wpc_has_sidebar() ) {
+	return false;
+}
+
 // Get current sidebar.
 $sidebar_id = wpc_get_current_sidebar();
 

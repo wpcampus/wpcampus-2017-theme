@@ -3,8 +3,98 @@
 	min-height: 200px;
 	padding: 40px 0 50px 0;
 
+	// Callouts.
+	.callout {
+		background: $wpc-light-gray;
+		padding: 20px;
+		margin: $paragraph-margin-vert 0;
+
+		* {
+			color: inherit;
+		}
+
+		&.primary {
+			background: $wpc-royal-blue;
+			color: #fff;
+		}
+
+		&.red {
+			background: $wpc-red;
+			color: #fff;
+		}
+
+		&.dark-blue {
+	        background: $wpc-dark-blue;
+	        color: #fff;
+	    }
+
+		&.center {
+			text-align: center;
+		}
+
+		> *:first-child {
+			margin-top: 0;
+		}
+
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// Captions
+	figure {
+		margin: $paragraph-margin-vert 0;
+		border: 1px solid #F3F3F3;
+		padding: 20px;
+		border-radius: 5px;
+
+		img {
+			margin: 0 0 10px 0;
+		}
+
+		figcaption {
+			font-size: 0.9rem;
+		}
+	}
+
+	.wpc-articles {
+		margin-top: 30px;
+
+		article {
+			border-top: 1px solid $wpc-light-gray;
+			padding-top: 35px;
+			margin-top: 45px;
+
+			&:first-child {
+				border-top: 0;
+				padding-top: 0;
+				margin-top: 0;
+			}
+		}
+	}
+
+	.wpc-search-result-message {
+		font-style: italic;
+
+		.search-term {
+			font-weight: bold;
+		}
+	}
+
 	.wpc-content {
 		min-height: 1px;
+
+		.columns {
+			overflow: auto;
+
+			.column.two {
+				@include span-columns(6);
+			}
+		}
+
+		> *:first-child {
+			margin-top: 0;
+		}
 	}
 
 	.wpc-sidebar {
@@ -12,9 +102,18 @@
 		margin: 3rem 0 0 0;
 		padding: 2.6rem 0 0 0;
 		border-top: 1px solid #eee;
+		font-size: 0.9rem;
 
 		.widget-title {
+			font-size: 1.3em;
+			font-weight: 400;
+			color: #444;
+			text-transform: uppercase;
 			margin: 0 0 0.8rem 0;
+		}
+
+		h4 {
+			font-weight: normal;
 		}
 
 		ol, ul {
@@ -34,9 +133,52 @@
 
 		.widget {
 			margin: $paragraph-margin-vert 0;
+			border: 1px solid #F3F3F3;
+			padding: 20px;
+			border-radius: 5px;
+
+			&.tribe-events-list-widget {
+
+				.tribe-event-title {
+					margin: 0;
+				}
+			}
+
+			&.gform_widget {
+				margin-top: 24px;
+
+				.sidebar-title {
+					margin-top: -43px;
+					margin-bottom: 8px;
+				}
+			}
 
 			&:first-child {
 				margin-top: 0;
+			}
+		}
+
+		// Mailing list form
+		#gform_wrapper_4 {
+			margin: 0;
+
+			label {
+				display: block;
+				font-size: .9rem;
+				font-weight: bold;
+			}
+
+			input {
+				width: 100% !important;
+
+				&[type=text] {
+					height: auto;
+				}
+			}
+
+			.gform_footer {
+				margin: 0;
+				padding: 0;
 			}
 		}
 	}
@@ -55,6 +197,28 @@
 				border: 0;
 				padding: 0;
 			}
+		}
+	}
+}
+
+// Our map element.
+#wpcampus-2017-map {
+	width: 100%;
+	height: 600px;
+	border: 0;
+	padding: 0;
+	margin: 0 0 -6px 0;
+}
+
+// Style the map page.
+body.page-template-template-map {
+
+	#wpc-main {
+		padding: 0;
+
+		> .inside {
+			max-width: 100%;
+			padding: 0;
 		}
 	}
 }

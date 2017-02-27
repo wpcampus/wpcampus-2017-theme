@@ -1,24 +1,87 @@
 #wpc-hero {
-	background: url('../images/canisius-hero.jpg') no-repeat center center fixed;
-	background-size: cover;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/canisius-hero.jpg', sizingMethod='scale');
-	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/canisius-hero.jpg', sizingMethod='scale')";
 	width: 100%;
-	height: 100%;
-	z-index: -1;
+	position: relative;
+	margin: 0;
+
+	> .inside {
+		padding: 40px 0;
+		position: relative;
+	}
+
+	#wpc-hero-bg {
+		position: absolute;
+		top: -15%;
+		left: -15%;
+		width: 130%;
+		height: 130%;
+		background: url('../images/canisius-hero.jpg') no-repeat center center fixed #000;
+		background-size: cover;
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/canisius-hero.jpg', sizingMethod='scale');
+		-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/canisius-hero.jpg', sizingMethod='scale')";
+		-webkit-filter: blur(8px);
+		z-index: -1;
+		box-shadow: inset 0 0 150px #000;
+
+		&:before {
+			content: '';
+			position: absolute;
+			background: rgba(0, 0, 0, 0.5);
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	body.home & {
+		height: 100%;
+		padding: 0;
+		z-index: -1;
+
+		> .inside {
+			padding: 0;
+		}
+
+		#wpc-hero-bg {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			-webkit-filter: none;
+			opacity: 1;
+			
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.wpc-hero-title {
+		margin: 0;
+		text-align: center;
+		font-size: 2.5rem;
+		line-height: 1;
+		font-weight: 500;
+		color: rgba( #fff, 0.9 );
+		text-transform: uppercase;
+	}
 
 	.wpc-notification {
-		background: $wpc-light-gray;
+		background: $wpc-royal-blue; // $wpc-light-gray;
 		padding: $wpc-notif-padding;
 		min-height: $wpc-notif-icon-height;
-		position: absolute;
-		left: 0;
-		bottom: 0;
 		width: 100%;
 		z-index: 1000;
+		color: #fff;
+
+		.inside {
+			padding: 0;
+		}
 
 		* {
 			font-size: inherit;
+			color: inherit;
 
 			&:first-child {
 				margin-top: 0;
@@ -44,6 +107,12 @@
 				vertical-align: middle;
 				margin: 0 10px 0 0;
 			}
+		}
+
+		body.home & {
+			position: absolute;
+			left: 0;
+			bottom: 0;
 		}
 	}
 }

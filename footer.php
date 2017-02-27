@@ -7,6 +7,13 @@
 		get_template_part( 'partials/get-involved' );
 
 		?>
+		<div id="wpc-mailing-list">
+			<div class="inside">
+				<h2><?php printf( __( 'Subscribe to %s', 'wpcampus' ), 'WPCampus' ); ?></h2>
+				<p><?php printf( __( 'Enter your email address to receive notifications about %s.', 'wpcampus' ), 'WPCampus' ); ?></p>
+				<?php echo do_shortcode( '[gravityform id="4" title="false" description="false" ajax="false"]' ); ?>
+			</div>
+		</div>
 		<div id="wpc-footer">
 			<div class="inside">
 				<a class="wpc-logo" href="https://wpcampus.org/"><span class="for-screen-reader"><?php printf( __( '%1$s: Where %2$s Meets Higher Education', 'wpcampus' ), 'WPCampus', 'WordPress' ); ?></span></a>

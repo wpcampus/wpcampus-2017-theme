@@ -31,13 +31,12 @@ $body-font-family: $open_sans;
 $body-font-color: #222;
 
 // Containers
-/*$wpc-inside-padding-side: 25px;
+$wpc-inside-padding-side: 30px;
 $wpc-inside-padding-side-desktop: 40px;
-$wpc-inside-padding-left: 100px;*/
 
 // Banner
 //$wpc-banner-padding-side: 40px;
-$wpc-banner-bg-color: $wpc-dark-blue; //#222;
+$wpc-banner-bg-color: $wpc-dark-blue;
 $wpc-banner-height: 30px;
 $wpc-banner-color: #fff;
 /*$wpc-banner-eduwapuu-width: 38px;
@@ -60,14 +59,22 @@ $wpc-header-menu-height: 70px;
 $wpc-header-menu-font-size: 16px;
 $wpc-header-height: $wpc-header-logo-height + ( $wpc-header-vert-padding * 2 );
 
+$wpc-header-left-width: 290px;
+$wpc-header-right-width: 340px;
+
+// Main Menu
+$wpc-menu-height: 50px;
+$wpc-menu-breakpoint: ( $wpc-header-left-width + $wpc-header-right-width ) + ( $wpc-header-logo-margin-side * 2 ) + $wpc-header-logo-width + 10px;
+
 	// Notifications
 $wpc-notif-icon-width: 28px;
 $wpc-notif-icon-height: 28px;
 $wpc-notif-padding: 20px;
 
 // Paragraphs
+$paragraph-font-size: 1rem;
 $paragraph-line-height: 1.8;
-$paragraph-margin-vert: 1.8rem;
+$paragraph-margin-vert: 1.5rem;
 
 // Lists
 $list-side-margin: 2.4rem;
