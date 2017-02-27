@@ -6,7 +6,7 @@ body {
 		padding: ($wpc-banner-height + $wpc-header-height) 0 0 0;
 	}
 
-	&.home {
+	&.front {
 		padding: 0 !important;
 	}
 }
@@ -232,17 +232,17 @@ body {
 			float: left;
 			height: $wpc-banner-height;
 			line-height: $wpc-banner-height;
+			opacity: 0.75;
 
 			a {
 				display: block;
 				height: $wpc-banner-height;
 				line-height: $wpc-banner-height;
-				opacity: 0.75;
+			}
 
-				&:hover {
-					background: darken( $wpc-banner-bg-color, 10% );
-					opacity: 1;
-				}
+			&:hover {
+				background: darken( $wpc-banner-bg-color, 10% );
+				opacity: 1;
 			}
 		}
 

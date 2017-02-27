@@ -105,11 +105,14 @@
 		font-size: 0.9rem;
 
 		.widget-title {
-			font-size: 1.3em;
-			font-weight: 400;
-			color: #444;
-			text-transform: uppercase;
+			font-size: 21px;
+			line-height: 24px;
+			font-weight: 300;
+			color: #292F33;
+			text-transform: none;
 			margin: 0 0 0.8rem 0;
+			padding: 10px;
+			border-bottom: 1px solid rgba( 15, 70, 100, .12 );
 		}
 
 		h4 {
@@ -133,8 +136,6 @@
 
 		.widget {
 			margin: $paragraph-margin-vert 0;
-			border: 1px solid #F3F3F3;
-			padding: 20px;
 			border-radius: 5px;
 
 			&.tribe-events-list-widget {
@@ -155,6 +156,20 @@
 
 			&:first-child {
 				margin-top: 0;
+			}
+		}
+
+		.twitter-timeline {
+
+			.timeline-Header {
+				padding: 10px;
+			}
+
+			.timeline-Header-title {
+				font-size: 20px;
+				line-height: 1;
+				font-weight: 300;
+				text-transform: uppercase;
 			}
 		}
 

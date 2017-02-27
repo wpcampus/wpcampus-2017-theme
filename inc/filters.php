@@ -5,16 +5,20 @@
  */
 function wpc_2017_filter_body_class( $classes, $class ) {
 
-	// No point if no sidebar.
-	if ( ! wpc_has_sidebar() ) {
-		return $classes;
+	// Let us know we're on the front page.
+	if ( is_front_page() ) {
+		$classes[] = 'front';
 	}
 
-	// See if there is a sidebar ID.
-	$sidebar_id = wpc_get_current_sidebar();
-	if ( $sidebar_id ) {
-		$classes[] = 'has-sidebar';
-		$classes[] = 'has-sidebar-' . preg_replace( '/^wpc\-sidebar\-/i', '', $sidebar_id );
+	// No point if no sidebar.
+	if ( wpc_has_sidebar() ) {
+
+		// See if there is a sidebar ID.
+		$sidebar_id = wpc_get_current_sidebar();
+		if ( $sidebar_id ) {
+			$classes[] = 'has-sidebar';
+			$classes[] = 'has-sidebar-' . preg_replace( '/^wpc\-sidebar\-/i', '', $sidebar_id );
+		}
 	}
 
 	return $classes;

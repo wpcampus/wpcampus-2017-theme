@@ -39,8 +39,9 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 		<div id="wpc-banner">
 			<div class="inside">
 				<ul class="menu">
-					<li><a href="https://wpcampus.org/get-involved/">Community</a></li>
-					<li><a href="<?php echo $tweets_tagboard; ?>">Tweets</a></li>
+					<li><a href="https://wpcampus.org/get-involved/"><?php _e( 'Community', 'wpcampus' ); ?></a></li>
+					<li><a href="<?php echo $tweets_tagboard; ?>"><?php _e( 'Tweets', 'wpcampus' ); ?></a></li>
+					<li<?php echo is_page( 'contact' ) ? ' class="current"': null; ?>><a href="/contact/"><?php _e( 'Contact', 'wpcampus' ); ?></a></li>
 				</ul>
 				<?php wpc_print_social_media_icons( 'white' ); ?>
 			</div>
@@ -60,7 +61,7 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 						<li<?php echo is_page( 'tickets' ) ? ' class="current"': null; ?>><a href="/tickets/"><?php _e( 'Tickets', 'wpcampus' ); ?></a></li>
 					</ul>
 				</div>
-				<a class="wpc-logo" href="/"><span class="for-screen-reader"><?php printf( __( '%1$s: Where %2$s Meets Higher Education', 'wpcampus' ), 'WPCampus', 'WordPress' ); ?></span></a>
+				<a class="wpc-logo" href="/"><span class="for-screen-reader"><?php printf( __( '%1$s: Where %2$s Meets Higher Education - July 14-15, 2017 - Buffalo, New York', 'wpcampus' ), 'WPCampus', 'WordPress' ); ?></span></a>
 				<div class="wpc-header-menu wpc-header-right">
 					<ul class="menu">
 						<li class="has-submenu<?php echo ( is_page( 'location' ) || is_page( 'hotels' ) || is_page( 'transportation' ) ) ? ' current': null; ?>">
