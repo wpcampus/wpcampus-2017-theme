@@ -156,6 +156,7 @@ function wpc_print_social_media_icons( $color = 'black' ) {
 		<li><a class="twitter" href="https://twitter.com/wpcampusorg"><img src="<?php echo $theme_dir; ?>assets/images/twitter<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Twitter' ); ?>" /></a></li>
 		<li><a class="facebook" href="https://www.facebook.com/wpcampus"><img src="<?php echo $theme_dir; ?>assets/images/facebook<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Facebook' ); ?>" /></a></li>
 		<li><a class="youtube" href="https://www.youtube.com/wpcampusorg"><img src="<?php echo $theme_dir; ?>assets/images/youtube<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'YouTube' ); ?>" /></a></li>
+		<li><a class="lanyrd" href="http://lanyrd.com/2017/wpcampus/"><img src="<?php echo $theme_dir; ?>assets/images/lanyrd<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Lanyrd' ); ?>" /></a></li>
 		<li><a class="github" href="https://github.com/wpcampus/"><img src="<?php echo $theme_dir; ?>assets/images/github<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'GitHub' ); ?>" /></a></li>
 	</ul>
 	<?php
