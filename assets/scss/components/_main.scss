@@ -92,6 +92,17 @@
 			}
 		}
 
+		ul.columns.two {
+			overflow: auto;
+			margin-left: 1.25rem;
+
+			li {
+				float: left;
+				width: 50%;
+				list-style-position: inside;
+			}
+		}
+
 		> *:first-child {
 			margin-top: 0;
 		}
