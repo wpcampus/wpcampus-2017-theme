@@ -68,7 +68,7 @@ gulp.task('php',function () {
 });
 
 // Let's get this party started
-gulp.task('default',['compile','test']);
+gulp.task('default',['copyassets','compile','test']);
 
 // Compile all the things
 gulp.task('compile',['sass','js']);
@@ -81,4 +81,10 @@ gulp.task('watch',function() {
 	gulp.watch(src.scss,['sass']);
 	gulp.watch(src.js,['js']);
 	gulp.watch(src.php,['php']);
+});
+
+// Copies assets we need from our packages
+gulp.task('copyassets', function() {
+	gulp.src('./node_modules/mustache/mustache.min.js')
+		.pipe(gulp.dest('assets/js'));
 });

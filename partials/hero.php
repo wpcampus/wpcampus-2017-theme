@@ -33,11 +33,10 @@
 
 		?>
 	</div>
-	<div class="wpc-notification">
-		<div class="inside">
-			<div class="wpc-notification-message">
-				<p><span class="information"></span> The WPCampus 2017 <a href="/call-for-speakers/">call for speakers</a> is open until <strong>March 24, 2017</strong>.</p>
-			</div>
-		</div>
-	</div>
+	<?php
+
+	// Include notifications.
+	require( STYLESHEETPATH . '/partials/notification.html' );
+
+	?>
 </div><!-- #wpc-hero -->

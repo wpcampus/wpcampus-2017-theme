@@ -66,11 +66,17 @@ function wpc_2017_enqueue_scripts() {
 	// Enqueue the base styles.
 	wp_enqueue_style( 'wpcampus', $wpcampus_dir . 'assets/css/styles.min.css', array( 'wpcampus-fonts' ), null, 'all' );
 
-	// Enqueue modernizr - goes in header.
-	wp_enqueue_script( 'modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' );
+	// Register modernizr.
+	wp_register_script( 'modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' );
 
-	// Enqueue the main script file - goes in footer.
+	// Register mustache.
+	wp_register_script( 'mustache', $wpcampus_dir . 'assets/js/mustache.min.js', array(), true );
+
+	// Enqueue the main script - goes in footer.
 	wp_enqueue_script( 'wpcampus', $wpcampus_dir . 'assets/js/wpcampus.min.js', array( 'jquery', 'modernizr' ), null, true );
+
+	// Enqueue the notifications script- goes in footer.
+	wp_enqueue_script( 'wpcampus-notifications', $wpcampus_dir . 'assets/js/wpcampus-notifications.min.js', array( 'jquery', 'mustache' ), null, true );
 
 	// Add our iframe script.
 	/*if ( is_page_template( 'template-map.php' ) ) {
