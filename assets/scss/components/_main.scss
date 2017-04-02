@@ -3,6 +3,16 @@
 	min-height: 200px;
 	padding: 40px 0 50px 0;
 
+	// Buttons
+	.button {
+		display: inline-block;
+		background: $wpc-royal-blue;
+		color: #fff;
+		padding: 10px 15px;
+		margin: 0;
+		border-radius: 4px;
+	}
+
 	// Callouts.
 	.callout {
 		background: $wpc-light-gray;

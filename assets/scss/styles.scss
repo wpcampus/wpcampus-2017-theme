@@ -90,6 +90,13 @@ img {
 	}
 }
 
+iframe {
+	display: block;
+	width: 100%;
+	height: 400px;
+	margin: $paragraph-margin-vert 0;
+}
+
 #wpc-wrapper {
 	height: 100%;
 }
