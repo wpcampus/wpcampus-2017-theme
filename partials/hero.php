@@ -36,7 +36,7 @@
 	<?php
 
 	// Include notifications.
-	require( STYLESHEETPATH . '/partials/notification.html' );
+	require( STYLESHEETPATH . '/partials/notifications.html' );
 
 	?>
 </div><!-- #wpc-hero -->
