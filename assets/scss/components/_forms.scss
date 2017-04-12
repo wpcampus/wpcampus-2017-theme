@@ -17,6 +17,10 @@
 		textarea,
 		select {
 			border: 1px solid #eee;
+
+			&[readonly] {
+				background: rgba(0,0,0,0.07);
+			}
 		}
 
 		input[type="text"] {
@@ -27,15 +31,29 @@
 			}
 		}
 
-		input[type="radio"],
-		input[type="checkbox"] {
+		input[type="checkbox"],
+		input[type="radio"] {
 			margin: 3px 8px 0 .063em !important;
+		}
+
+		ul {
+
+			&.gfield_checkbox,
+			&.gfield_radio {
+				margin: 6px 0 6px 15px;
+			}
 		}
 
 		ul li {
 
 			&.gfield {
-				margin: 0 0 1em 0;
+				margin: 0 0 1.2em 0;
+
+				&.gsection {
+					clear: both;
+					padding: 14px 0 8px !important;
+					margin: 20px 0 1em 0 !important;
+				}
 			}
 		}
 
@@ -72,6 +90,15 @@
 				margin: 0;
 				padding: 15px;
 				cursor: pointer;
+			}
+		}
+	}
+
+	#gform_wrapper_8 {
+
+		.gfield.conf-sch-confirmation-field {
+			.gfield_label {
+				@include for-screen-reader();
 			}
 		}
 	}
