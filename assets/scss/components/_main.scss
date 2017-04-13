@@ -1,3 +1,33 @@
+#wpcampus-breadcrumbs {
+	margin: 0 0 30px 0;
+	color: #444;
+
+	a {
+		color: inherit;
+	}
+
+	ul, li {
+		display: block;
+		list-style-type:none;
+		margin: 0;
+		padding: 0;
+		font-size: 0.9rem;
+	}
+
+	li {
+		display: inline-block;
+
+		&:before {
+			content: '/';
+			margin: 0 10px;
+		}
+
+		&:first-child:before {
+			display: none;
+		}
+	}
+}
+
 #wpc-main {
 	background: #fff;
 	min-height: 200px;

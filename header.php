@@ -82,3 +82,7 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 		<div id="wpc-main">
 			<div class="inside">
 				<div class="wpc-content">
+					<?php
+
+					// Print breadcrumbs.
+					echo wpcampus_get_breadcrumbs_html();
