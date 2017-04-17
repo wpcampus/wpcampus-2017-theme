@@ -16,7 +16,7 @@
 		input[type="text"],
 		textarea,
 		select {
-			border: 1px solid #eee;
+			border: 1px solid #ccc;
 
 			&[readonly] {
 				background: rgba(0,0,0,0.07);
@@ -38,22 +38,28 @@
 
 		ul {
 
+			li {
+
+				&.gfield {
+					margin: 0 0 1.2em 0;
+
+					&.gsection {
+						clear: both;
+						padding: 14px 0 8px !important;
+						margin: 20px 0 1em 0 !important;
+					}
+
+					&.wpc-hide-label {
+						.gfield_label {
+							@include for-screen-reader();
+						}
+					}
+				}
+			}
+
 			&.gfield_checkbox,
 			&.gfield_radio {
 				margin: 6px 0 6px 15px;
-			}
-		}
-
-		ul li {
-
-			&.gfield {
-				margin: 0 0 1.2em 0;
-
-				&.gsection {
-					clear: both;
-					padding: 14px 0 8px !important;
-					margin: 20px 0 1em 0 !important;
-				}
 			}
 		}
 
@@ -75,10 +81,12 @@
 			}
 		}
 
-		.gform_footer {
+		.gform_footer,
+		.gform_page_footer {
 			padding: 0;
 			margin: 2rem 0 0 0;
 
+			.button,
 			.gform_button {
 				background: $wpc-red;
 				width: 100%;
@@ -90,15 +98,17 @@
 				margin: 0;
 				padding: 15px;
 				cursor: pointer;
-			}
-		}
-	}
 
-	#gform_wrapper_8 {
+				&.gform_previous_button,
+				&.secondary {
+					background: $wpc-light-gray;
+					color: #000;
+				}
 
-		.gfield.conf-sch-confirmation-field {
-			.gfield_label {
-				@include for-screen-reader();
+				& + .button,
+				& + .gform_button {
+					margin-top: 10px;
+				}
 			}
 		}
 	}

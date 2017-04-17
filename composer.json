@@ -15,7 +15,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "./vendor/bin/phpcs --config-set bin vendor/bin/phpcs",
+            "./vendor/bin/phpcs --config-set bin ./vendor/bin/phpcs",
             "./vendor/bin/phpcs --config-set installed_paths ../../wp-coding-standards/wpcs"
         ]
     }

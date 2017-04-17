@@ -11,7 +11,7 @@
 			<div class="inside">
 				<h2><?php printf( __( 'Subscribe to %s', 'wpcampus' ), 'WPCampus' ); ?></h2>
 				<p><?php printf( __( 'Enter your email address to receive notifications about %s.', 'wpcampus' ), 'WPCampus' ); ?></p>
-				<?php echo do_shortcode( '[gravityform id="4" title="false" description="false" ajax="false"]' ); ?>
+				<?php echo do_shortcode( '[gravityform id="4" title="false" description="false" ajax="false" tabindex="2000"]' ); ?>
 			</div>
 		</div>
 		<div id="wpc-footer">

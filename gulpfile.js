@@ -60,7 +60,7 @@ gulp.task('js',function() {
 gulp.task('php',function () {
 	return gulp.src(src.php)
 		.pipe(phpcs({
-			bin: 'vendor/bin/phpcs',
+			bin: './vendor/bin/phpcs',
 			standard: 'WordPress-Core'
 		}))
 		// Log all problems that was found

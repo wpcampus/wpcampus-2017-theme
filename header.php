@@ -12,7 +12,7 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<a href="#wpc-main" id="skip-to-content"><?php _e( 'Skip to Content', 'wpcampus' ); ?></a>
+	<a href="#wpc-main" id="skip-to-content" tabindex="1"><?php _e( 'Skip to Content', 'wpcampus' ); ?></a>
 	<div id="wpc-wrapper">
 
 		<div id="wpc-2017-main-menu">
@@ -22,8 +22,8 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 					<div class="bar two"></div>
 					<div class="bar three"></div>
 				</div>
-				<div class="open-menu-label">Menu</div>
-				<div class="close-menu-label">Close</div>
+				<div class="open-menu-label"><?php _e( 'Menu', 'wpcampus' ); ?></div>
+				<div class="close-menu-label"><?php _e( 'Close', 'wpcampus' ); ?></div>
 			</div>
 			<?php
 

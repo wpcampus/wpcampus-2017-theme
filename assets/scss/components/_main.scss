@@ -41,6 +41,35 @@
 		padding: 10px 15px;
 		margin: 0;
 		border-radius: 4px;
+
+		&.secondary {
+			background: $wpc-light-gray;
+			color: #000;
+		}
+
+		&.red {
+			background: $wpc-red;
+			color: #fff;
+		}
+
+		&.block {
+			display: block;
+			width: 100%;
+			margin: $paragraph-margin-vert 0;
+
+			& + .block {
+				margin-top: -10px;
+			}
+		}
+
+		&.center {
+			text-align: center;
+		}
+
+		&.start-registration {
+			padding: 20px 15px;
+			font-weight: bold;
+		}
 	}
 
 	// Callouts.
