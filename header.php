@@ -73,7 +73,13 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 							</ul>
 						</li>
 						<li<?php echo is_page( 'attendees' ) ? ' class="current"': null; ?>><a href="/attendees/"><?php _e( 'Attendees', 'wpcampus' ); ?></a></li>
-						<li<?php echo is_page( 'sponsors' ) ? ' class="current"': null; ?>><a href="/sponsors/"><?php _e( 'Sponsors', 'wpcampus' ); ?></a></li>
+						<li class="has-submenu<?php echo is_page( 'sponsors' ) || is_page( 'sponsors/become-a-sponsor/' ) || is_page( 'sponsors/contact/' ) ? ' current' : null; ?>">
+							<a href="/sponsors/"><?php _e( 'Sponsors', 'wpcampus' ); ?></a>
+							<ul class="submenu">
+								<li<?php echo is_page( 'sponsors/become-a-sponsor/' ) ? ' class="current"': null; ?>><a href="/sponsors/become-a-sponsor/"><?php _e( 'Become A Sponsor', 'wpcampus' ); ?></a></li>
+								<li<?php echo is_page( 'sponsors/contact/' ) ? ' class="current"': null; ?>><a href="/sponsors/contact/"><?php _e( 'Contact Us', 'wpcampus' ); ?></a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>

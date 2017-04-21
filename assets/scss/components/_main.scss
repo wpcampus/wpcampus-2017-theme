@@ -28,6 +28,27 @@
 	}
 }
 
+.wpc-sponsor {
+
+	h2 {
+		font-size: 2rem;
+		line-height: 1;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin-top: 35px;
+	}
+
+	h3 {
+		font-size: 2.2rem;
+		line-height: 2.8rem;
+	}
+
+	.wpc-sponsor-inside {
+		border: 1px solid #e3e3e3;
+		padding: 20px;
+	}
+}
+
 #wpc-main {
 	background: #fff;
 	min-height: 200px;
