@@ -14,7 +14,7 @@
 				<h1 class="wpc-hero-title">
 					<?php
 
-					if ( is_home() ) :
+					if ( is_home() || is_single() || is_archive() ) :
 						_e( 'Announcements', 'wpcampus' );
 					elseif ( is_404() ) :
 						_e( 'Page Not Found', 'wpcampus' );

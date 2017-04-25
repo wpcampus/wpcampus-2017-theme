@@ -4,6 +4,15 @@ get_header();
 
 if ( have_posts() ) :
 
+	// Add category header.
+	$categories = get_the_category();
+	if ( ! empty( $categories ) ) {
+		$category = array_shift( $categories );
+		if ( ! empty( $category ) ) :
+			?><div class="callout archive-category"><?php echo $category->name; ?></div><?php
+		endif;
+	}
+
 	?>
 	<div class="wpc-articles">
 		<?php
@@ -19,6 +28,8 @@ if ( have_posts() ) :
 			<article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
 				<h2><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a></h2>
 				<?php
+
+				wpcampus_2017_print_article_meta();
 
 				the_excerpt();
 

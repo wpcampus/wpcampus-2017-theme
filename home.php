@@ -20,6 +20,8 @@ if ( have_posts() ) :
 				<h2><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a></h2>
 				<?php
 
+				wpcampus_2017_print_article_meta();
+
 				the_excerpt();
 
 				?>

@@ -222,7 +222,6 @@ function wpcampus_get_breadcrumbs_html() {
 	// Add archive(s)
 	if ( is_archive() ) {
 
-		// Add the archive breadcrumb
 		if ( is_post_type_archive() ) {
 
 			// Get the info
@@ -236,11 +235,42 @@ function wpcampus_get_breadcrumbs_html() {
 					'label' => $post_type_archive_title,
 				);
 			}
+		} else {
+
+			// Add crumb to announcements page.
+			$breadcrumbs[] = array(
+				'url'	=> '/announcements/',
+				'label'	=> 'Announcements',
+			);
+
+			// Add category.
+			if ( is_category() ) {
+
+				$categories = get_the_category();
+				if ( ! empty( $categories ) ) {
+					$category = array_shift( $categories );
+					if ( ! empty( $category ) ) {
+
+						$breadcrumbs[] = array(
+							'url'	=> get_category_link( $category->term_id ),
+							'label'	=> $category->name,
+						);
+					}
+				}
+			}
 		}
 	} else {
 
-		// Add links to archive
-		if ( is_singular() ) {
+		// Add links to announcements.
+		if ( is_single() ) {
+
+			// Add crumb to announcements page.
+			$breadcrumbs[] = array(
+				'url'	=> '/announcements/',
+				'label'	=> 'Announcements',
+			);
+
+		} elseif ( is_singular() ) {
 
 			// Get the information
 			$post_type_archive_link = get_post_type_archive_link( $post_type );
@@ -332,4 +362,39 @@ function wpcampus_get_breadcrumbs_html() {
 
 	//  We change up the variable so it doesn't interfere with global variable
 	return $breadcrumbs_html;
+}
+
+function wpcampus_2017_print_article_meta() {
+
+	// Get categories.
+	$categories = get_the_category_list( ', ' );
+
+	?>
+	<div class="article-meta">
+		<span class="article-time"><?php wpcampus_2017_print_article_time(); ?></span>
+		<?php
+
+		if ( $categories ) {
+			?> - <span class="article-categories"><?php echo $categories; ?></span><?php
+		}
+
+		?>
+	</div>
+	<?php
+
+}
+
+function wpcampus_2017_print_article_time() {
+
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+	}
+
+	echo sprintf( $time_string,
+		get_the_date( DATE_W3C ),
+		get_the_date()
+	);
+
 }

@@ -39,6 +39,8 @@ if ( $blogs->have_posts() ) :
 				<h3><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a></h3>
 				<?php
 
+				wpcampus_2017_print_article_meta();
+
 				the_excerpt();
 
 				?>
