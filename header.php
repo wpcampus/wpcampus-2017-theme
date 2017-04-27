@@ -91,4 +91,6 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 					<?php
 
 					// Print breadcrumbs.
-					echo wpcampus_get_breadcrumbs_html();
+					if ( ! is_page( 'map' ) ) {
+						echo wpcampus_get_breadcrumbs_html();
+					}
