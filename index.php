@@ -13,7 +13,10 @@ if ( have_posts() ) :
 			<h1><?php the_title(); ?></h1>
 			<?php
 
-			wpcampus_2017_print_article_meta();
+			// Don't print on schedule.
+			if ( ! is_singular( 'schedule' ) ) {
+				wpcampus_2017_print_article_meta();
+			}
 
 		endif;
 
