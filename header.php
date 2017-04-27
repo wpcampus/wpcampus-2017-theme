@@ -57,7 +57,7 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 								<li<?php echo is_home() ? ' class="current"': null; ?>><a href="/announcements/"><?php _e( 'Announcements', 'wpcampus' ); ?></a></li>
 							</ul>
 						</li>
-						<li<?php echo is_page( 'call-for-speakers' ) ? ' class="current"': null; ?>><a href="/call-for-speakers/"><?php _e( 'Speakers', 'wpcampus' ); ?></a></li>
+						<li<?php echo ( is_page( 'schedule' ) || is_singular( 'schedule' ) ) ? ' class="current"': null; ?>><a href="/schedule/"><?php _e( 'Schedule', 'wpcampus' ); ?></a></li>
 						<li<?php echo is_page( 'tickets' ) ? ' class="current"': null; ?>><a href="/tickets/"><?php _e( 'Tickets', 'wpcampus' ); ?></a></li>
 					</ul>
 				</div>
