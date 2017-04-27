@@ -6,7 +6,9 @@
 		if ( ! is_front_page() ) :
 
 			// Print title
-			if ( is_single() ) :
+			if ( is_singular( 'schedule' ) ) :
+				?><div class="wpc-hero-title"><?php _e( 'Schedule', 'wpcampus' ); ?></div><?php
+			elseif ( is_home() || is_single() || is_archive() ) :
 				?><div class="wpc-hero-title"><?php _e( 'Announcements', 'wpcampus' ); ?></div><?php
 			else :
 
@@ -14,9 +16,7 @@
 				<h1 class="wpc-hero-title">
 					<?php
 
-					if ( is_home() || is_single() || is_archive() ) :
-						_e( 'Announcements', 'wpcampus' );
-					elseif ( is_404() ) :
+					if ( is_404() ) :
 						_e( 'Page Not Found', 'wpcampus' );
 					elseif ( is_search() ) :
 						_e( 'Search Results', 'wpcampus' );

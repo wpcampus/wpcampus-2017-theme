@@ -262,7 +262,15 @@ function wpcampus_get_breadcrumbs_html() {
 	} else {
 
 		// Add links to announcements.
-		if ( is_single() ) {
+		if ( is_singular( 'schedule' ) ) {
+
+			// Add crumb to schedule page.
+			$breadcrumbs[] = array(
+				'url'	=> '/schedule/',
+				'label'	=> 'Schedule',
+			);
+
+		} elseif ( is_single() ) {
 
 			// Add crumb to announcements page.
 			$breadcrumbs[] = array(
