@@ -49,10 +49,34 @@
 	}
 }
 
+#conference-schedule-container {
+
+	.schedule-event {
+
+		.event-title {
+
+			.wpc-event-type {
+				text-transform: uppercase;
+				opacity: 0.7;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+body.single-schedule #wpc-main h1 .wpc-event-type {
+	text-transform: uppercase;
+	opacity: 0.7;
+}
+
 #wpc-main {
 	background: #fff;
 	min-height: 200px;
 	padding: 40px 0 50px 0;
+
+	h1 {
+		text-transform: none;
+	}
 
 	// Buttons
 	.button {

@@ -1,6 +1,25 @@
 <?php
 
 /**
+ * Filtering the title.
+ */
+function wpc_2017_filter_post_title( $post_title, $post_id ) {
+
+	// Only for schedule.
+	if ( 'schedule' != get_post_type( $post_id ) ) {
+		return $post_title;
+	}
+
+	// Add "Workshop" when needed.
+	if ( has_term( 'workshop', 'event_types' ) ) {
+		$post_title = '<span class="wpc-event-type">Workshop:</span> ' . $post_title;
+	}
+
+	return $post_title;
+}
+add_filter( 'the_title', 'wpc_2017_filter_post_title' );
+
+/**
  * Filter the <body> class.
  */
 function wpc_2017_filter_body_class( $classes, $class ) {
