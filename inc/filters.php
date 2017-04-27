@@ -22,7 +22,7 @@ function wpc_2017_filter_post_title( $post_title, $post_id ) {
 
 	return $post_title;
 }
-add_filter( 'the_title', 'wpc_2017_filter_post_title', 10, 2 );
+add_filter( 'the_title', 'wpc_2017_filter_post_title', 100, 2 );
 
 /**
  * Filter the <body> class.
