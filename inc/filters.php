@@ -5,6 +5,11 @@
  */
 function wpc_2017_filter_post_title( $post_title, $post_id ) {
 
+	// Not in the admin.
+	if ( is_admin() ) {
+		return $post_title;
+	}
+
 	// Only for schedule.
 	if ( 'schedule' != get_post_type( $post_id ) ) {
 		return $post_title;
