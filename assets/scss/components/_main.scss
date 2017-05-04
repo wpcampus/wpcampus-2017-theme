@@ -312,7 +312,7 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 			line-height: 24px;
 			font-weight: 300;
 			color: #292F33;
-			text-transform: none;
+			text-transform: uppercase;
 			margin: 0 0 0.8rem 0;
 			padding: 10px;
 			border-bottom: 1px solid rgba( 15, 70, 100, .12 );
@@ -320,6 +320,7 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 
 		h4 {
 			font-weight: normal;
+			text-transform: uppercase;
 		}
 
 		ol, ul {
@@ -359,6 +360,21 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 
 			&:first-child {
 				margin-top: 0;
+			}
+		}
+
+		.wpc-sponsors-sidebar {
+
+			h4 {
+				font-weight: bold;
+			}
+
+			.wpc-sponsor-logo {
+				margin: 0;
+
+				&.sponsor-vp {
+					width: 85%;
+				}
 			}
 		}
 
