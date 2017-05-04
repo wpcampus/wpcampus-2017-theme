@@ -30,22 +30,7 @@ if ( $blogs->have_posts() ) :
 		while ( $blogs->have_posts() ) :
 			$blogs->the_post();
 
-			// Get post information.
-			$post_id = get_the_ID();
-			$post_permalink = get_permalink( $post_id );
-
-			?>
-			<article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-				<h3><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a></h3>
-				<?php
-
-				wpcampus_2017_print_article_meta();
-
-				the_excerpt();
-
-				?>
-			</article>
-			<?php
+			wpcampus_2017_print_article( 'h3' );
 
 		endwhile;
 

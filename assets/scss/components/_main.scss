@@ -249,6 +249,19 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 				padding-top: 0;
 				margin-top: 0;
 			}
+
+			.article-thumbnail {
+				float: left;
+				width: 100px;
+				height: 100px;
+				margin: 0 30px 10px 0;
+				border: 1px solid $wpc-light-gray;
+
+				@media screen and (min-width: $medium-up) {
+					width: 150px;
+					height: 150px;
+				}
+			}
 		}
 	}
 

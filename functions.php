@@ -372,6 +372,34 @@ function wpcampus_get_breadcrumbs_html() {
 	return $breadcrumbs_html;
 }
 
+function wpcampus_2017_print_article( $heading = 'h2' ) {
+
+	// Get post information.
+	$post_id = get_the_ID();
+	$post_permalink = get_permalink( $post_id );
+	$post_thumbnail_id = get_post_thumbnail_id( $post_id );
+
+	?>
+	<article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
+		<<?php echo $heading; ?>><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a></<?php echo $heading; ?>>
+		<?php
+
+		// Print the article meta.
+		wpcampus_2017_print_article_meta();
+
+		// Get the featured image.
+		$featured_image = $post_thumbnail_id > 0 ? wp_get_attachment_image_src( $post_thumbnail_id, 'thumbnail' ) : '';
+		if ( ! empty( $featured_image[0] ) ) :
+			?><img class="article-thumbnail" src="<?php echo $featured_image[0]; ?>" /><?php
+		endif;
+
+		the_excerpt();
+
+		?>
+	</article>
+	<?php
+}
+
 function wpcampus_2017_print_article_meta() {
 
 	// Get categories.
