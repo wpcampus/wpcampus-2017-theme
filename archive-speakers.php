@@ -68,11 +68,15 @@ function wpcampus_2017_archive_speaker_meta() {
 					$social_label = '';
 
 					if ( 'twitter' == $social ) {
-						$social_url = "https://twitter.com/{$speaker_twitter}";
-						$social_label = '@' . str_replace( '@', '', $speaker_twitter );
+						if ( $speaker_twitter ) {
+							$social_url   = "https://twitter.com/{$speaker_twitter}";
+							$social_label = '@' . str_replace( '@', '', $speaker_twitter );
+						}
 					} elseif ( 'linkedin' == $social ) {
-						$social_url = $speaker_linkedin;
-						$social_label = 'LinkedIn';
+						if ( $speaker_linkedin ) {
+							$social_url   = $speaker_linkedin;
+							$social_label = 'LinkedIn';
+						}
 					}
 
 					if ( $social_label ) :
