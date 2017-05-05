@@ -13,8 +13,8 @@ if ( have_posts() ) :
 			<h1><?php the_title(); ?></h1>
 			<?php
 
-			// Don't print on schedule.
-			if ( ! is_singular( 'schedule' ) ) {
+			// Don't print on certain pages.
+			if ( ! is_singular( array( 'schedule', 'speakers' ) ) ) {
 				wpcampus_2017_print_article_meta();
 			}
 

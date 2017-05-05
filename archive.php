@@ -2,6 +2,15 @@
 
 get_header();
 
+// Setup article args.
+$args = array();
+
+// Don't link to post or print meta for schedule or speakers.
+if ( is_post_type_archive( array( 'schedule', 'speakers' ) ) ) {
+	$args['link_to_post'] = false;
+	remove_action( 'wpcampus_2017_after_article_heading', 'wpcampus_2017_print_article_meta' );
+}
+
 if ( have_posts() ) :
 
 	// Add category header.
@@ -20,7 +29,7 @@ if ( have_posts() ) :
 		while ( have_posts() ) :
 			the_post();
 
-			wpcampus_2017_print_article();
+			wpcampus_2017_print_article( $args );
 
 		endwhile;
 

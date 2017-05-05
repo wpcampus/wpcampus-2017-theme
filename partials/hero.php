@@ -8,6 +8,8 @@
 			// Print title
 			if ( is_singular( 'schedule' ) ) :
 				?><div class="wpc-hero-title"><?php _e( 'Schedule', 'wpcampus' ); ?></div><?php
+			elseif ( is_post_type_archive() ) :
+				?><div class="wpc-hero-title"><?php post_type_archive_title(); ?></div><?php
 			elseif ( is_home() || is_single() || is_archive() ) :
 				?><div class="wpc-hero-title"><?php _e( 'Announcements', 'wpcampus' ); ?></div><?php
 			else :

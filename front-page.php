@@ -30,7 +30,9 @@ if ( $blogs->have_posts() ) :
 		while ( $blogs->have_posts() ) :
 			$blogs->the_post();
 
-			wpcampus_2017_print_article( 'h3' );
+			wpcampus_2017_print_article( array(
+				'heading' => 'h3',
+			));
 
 		endwhile;
 

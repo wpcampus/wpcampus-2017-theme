@@ -60,6 +60,9 @@ function wpc_2017_enqueue_scripts() {
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
 
+	// Load the conference schedule icons.
+	wp_enqueue_style( 'conf-schedule-icons' );
+
 	// Load Fonts.
 	wp_enqueue_style( 'wpcampus-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:600,400,300' );
 
@@ -77,7 +80,7 @@ function wpc_2017_enqueue_scripts() {
 		wp_enqueue_script( 'wpcampus-map', $wpcampus_dir . 'assets/js/wpcampus-map.min.js', array( 'jquery' ), null, true );
 	}*/
 }
-add_action( 'wp_enqueue_scripts', 'wpc_2017_enqueue_scripts', 10 );
+add_action( 'wp_enqueue_scripts', 'wpc_2017_enqueue_scripts', 100 );
 
 /**
  * Load favicons.
@@ -224,6 +227,14 @@ function wpcampus_get_breadcrumbs_html() {
 
 		if ( is_post_type_archive() ) {
 
+			// Add crumb to schedule page.
+			if ( is_post_type_archive( 'speakers' ) ) {
+				$breadcrumbs[] = array(
+					'url'   => '/schedule/',
+					'label' => 'Schedule',
+				);
+			}
+
 			// Get the info
 			$post_type_archive_link = get_post_type_archive_link( $post_type );
 			$post_type_archive_title = wpcampus_get_post_type_archive_title( $post_type );
@@ -268,6 +279,14 @@ function wpcampus_get_breadcrumbs_html() {
 			$breadcrumbs[] = array(
 				'url'	=> '/schedule/',
 				'label'	=> 'Schedule',
+			);
+
+		} elseif ( is_singular( 'speakers' ) ) {
+
+			// Add crumb to schedule page.
+			$breadcrumbs[] = array(
+					'url'	=> '/speakers/',
+					'label'	=> 'Speakers',
 			);
 
 		} elseif ( is_single() ) {
@@ -372,7 +391,17 @@ function wpcampus_get_breadcrumbs_html() {
 	return $breadcrumbs_html;
 }
 
-function wpcampus_2017_print_article( $heading = 'h2' ) {
+function wpcampus_2017_print_article( $args = array() ) {
+
+	// Define the defaults.
+	$defaults = array(
+		'heading'       => 'h2',
+		'link_to_post'  => true,
+		'print_content' => false,
+	);
+
+	// Merge incoming with defaults.
+	$args = wp_parse_args( $args, $defaults );
 
 	// Get post information.
 	$post_id = get_the_ID();
@@ -381,11 +410,18 @@ function wpcampus_2017_print_article( $heading = 'h2' ) {
 
 	?>
 	<article id="post-<?php echo $post_id; ?>" <?php post_class(); ?>>
-		<<?php echo $heading; ?>><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a></<?php echo $heading; ?>>
+		<<?php echo $args['heading']; ?>><?php
+
+		if ( $args['link_to_post'] ) {
+			?><a href="<?php echo $post_permalink; ?>"><?php the_title(); ?></a><?php
+		} else {
+			the_title();
+		}
+
+		?></<?php echo $args['heading']; ?>>
 		<?php
 
-		// Print the article meta.
-		wpcampus_2017_print_article_meta();
+		do_action( 'wpcampus_2017_after_article_heading' );
 
 		// Get the featured image.
 		$featured_image = $post_thumbnail_id > 0 ? wp_get_attachment_image_src( $post_thumbnail_id, 'thumbnail' ) : '';
@@ -393,7 +429,15 @@ function wpcampus_2017_print_article( $heading = 'h2' ) {
 			?><img class="article-thumbnail" src="<?php echo $featured_image[0]; ?>" /><?php
 		endif;
 
-		the_excerpt();
+		do_action( 'wpcampus_2017_before_article_content' );
+
+		if ( $args['print_content'] ) {
+			the_content();
+		} else {
+			the_excerpt();
+		}
+
+		do_action( 'wpcampus_2017_after_article_content' );
 
 		?>
 	</article>
@@ -419,6 +463,7 @@ function wpcampus_2017_print_article_meta() {
 	<?php
 
 }
+add_action( 'wpcampus_2017_after_article_heading', 'wpcampus_2017_print_article_meta' );
 
 function wpcampus_2017_print_article_time() {
 
