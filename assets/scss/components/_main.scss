@@ -435,14 +435,17 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 			}
 		}
 
-		ul.columns.two {
-			overflow: auto;
-			margin-left: 1.25rem;
+		ol, ul {
 
-			li {
-				float: left;
-				width: 50%;
-				list-style-position: inside;
+			&.columns.two {
+				overflow: auto;
+				margin-left: 1.25rem;
+
+				li {
+					float: left;
+					width: 50%;
+					list-style-position: inside;
+				}
 			}
 		}
 
@@ -520,8 +523,12 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 				font-weight: bold;
 			}
 
+			a {
+				display: block;
+			}
+
 			.wpc-sponsor-logo {
-				margin: 0;
+				margin: $paragraph-margin-vert 0 0 0;
 
 				&.sponsor-vp {
 					width: 85%;
