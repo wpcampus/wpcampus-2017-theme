@@ -25,6 +25,20 @@ function wpc_2017_filter_post_title( $post_title, $post_id ) {
 add_filter( 'the_title', 'wpc_2017_filter_post_title', 100, 2 );
 
 /**
+ * Tracking ticket purchase from Facebook.
+ */
+add_action( 'wpcampus_facebook_pixel', 'wpcampus_2017_fb_track_tickets' );
+function wpcampus_2017_fb_track_tickets() {
+	if ( is_page( 'tickets/tickets-confirmation' ) ) :
+		?>
+		<script>
+			fbq( 'track', 'Purchase', { value: '150.00', currency: 'USD' } );
+		</script>
+		<?php
+	endif;
+}
+
+/**
  * Filter the <body> class.
  */
 function wpc_2017_filter_body_class( $classes, $class ) {
