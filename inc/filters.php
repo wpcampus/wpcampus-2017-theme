@@ -78,3 +78,27 @@ function wpc_2017_filter_excerpt_more( $excerpt_more ) {
 	return ' &hellip;';
 }
 add_filter( 'excerpt_more', 'wpc_2017_filter_excerpt_more' );
+
+/**
+ * Add link to all announcements
+ * at end of blog posts.
+ */
+function wpc_2017_add_to_content( $content ) {
+
+	// Only add to the end of blog posts.
+	if ( is_singular( 'post' ) ) :
+
+		ob_start();
+
+		?>
+		<hr />
+		<em><a class="button secondary block" href="/announcements/"><?php _e( 'View all announcements', 'wpcampus' ); ?></a></em>
+		<?php
+
+		$content .= ob_get_clean();
+
+	endif;
+
+	return $content;
+}
+add_filter( 'the_content', 'wpc_2017_add_to_content' );
