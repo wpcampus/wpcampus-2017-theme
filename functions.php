@@ -56,6 +56,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
+	$wpcampus_version = '0.11';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
@@ -67,13 +68,13 @@ function wpc_2017_enqueue_scripts() {
 	wp_enqueue_style( 'wpcampus-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:600,400,300' );
 
 	// Enqueue the base styles.
-	wp_enqueue_style( 'wpcampus', $wpcampus_dir . 'assets/css/styles.min.css', array( 'wpcampus-fonts' ), null, 'all' );
+	wp_enqueue_style( 'wpcampus', $wpcampus_dir . 'assets/css/styles.min.css', array( 'wpcampus-fonts' ), $wpcampus_version, 'all' );
 
 	// Register modernizr.
 	wp_register_script( 'modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' );
 
 	// Enqueue the main script - goes in footer.
-	wp_enqueue_script( 'wpcampus', $wpcampus_dir . 'assets/js/wpcampus.min.js', array( 'jquery', 'modernizr' ), null, true );
+	wp_enqueue_script( 'wpcampus', $wpcampus_dir . 'assets/js/wpcampus.min.js', array( 'jquery', 'modernizr' ), $wpcampus_version, true );
 
 	// Add our iframe script.
 	/*if ( is_page_template( 'template-map.php' ) ) {
@@ -163,7 +164,6 @@ function wpc_print_social_media_icons( $color = 'black' ) {
 		<li><a class="github" href="https://github.com/wpcampus/"><img src="<?php echo $theme_dir; ?>assets/images/github<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'GitHub' ); ?>" /></a></li>
 	</ul>
 	<?php
-
 }
 
 // Get the post type archive title

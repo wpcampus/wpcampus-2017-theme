@@ -58,11 +58,11 @@
 
 // Mailing list
 #wpc-mailing-list {
-	background: $wpc-royal-blue;
+	background: $wpc-get-involved-bg;
 	padding: 40px 0 50px 0;
-	color: #fff;
 	font-size: 0.9em;
 	text-align: center;
+	color: #fff;
 
 	h2 {
 		font-size: 1.5rem;
@@ -74,6 +74,7 @@
 
 	input {
 		margin: 0;
+		@include set-placeholder-color( #444 );
 	}
 
 	.gform_wrapper {
@@ -124,7 +125,7 @@
 			padding: 0;
 
 			.gform_button {
-				background: $wpc-dark-blue;
+				background: $wpc-royal-blue;
 				color: #fff;
 				width: 100%;
 				height: 45px;
@@ -201,14 +202,19 @@
 
 	.wpc-logo {
 		display: block;
-		background: url( '../images/wpcampus-white-logo-tagline.svg' );
+		background: url( '../images/wpcampus-black-logo-tagline.svg' );
 		background-size: auto 100%;
 		width: 300px;
 		height: 50px;
 		margin: 0 auto 15px auto;
+		opacity: 0.7;
 
 		img {
 			height: 50px;
+		}
+
+		&:hover {
+			opacity: 1;
 		}
 	}
 
@@ -237,6 +243,44 @@
 
 			&:first-child:before {
 				display: none;
+			}
+		}
+	}
+
+	.disclaimer {
+		font-style: italic;
+	}
+
+	.social-media-icons {
+		display: inline-block;
+		margin: 25px 0 0 0;
+		border: 0;
+		padding: 0;
+		list-style: none;
+		text-align: center;
+
+		li {
+			display: block;
+			float: left;
+			margin: 0 10px;
+			border: 0;
+			padding: 0;
+			list-style: none;
+
+			img {
+				display: block;
+				width: auto;
+				height: 30px;
+				margin: 0;
+			}
+
+			a {
+				display: block;
+				opacity: $wpc-footer-opacity;
+
+				&:hover {
+					opacity: $wpc-footer-opacity-hover;
+				}
 			}
 		}
 	}
