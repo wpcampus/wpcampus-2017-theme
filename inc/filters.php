@@ -85,10 +85,23 @@ add_filter( 'excerpt_more', 'wpc_2017_filter_excerpt_more' );
  */
 function wpc_2017_add_to_content( $content ) {
 
-	// Only add to the end of blog posts.
-	if ( is_singular( 'post' ) ) :
+	// Only add to the end of events.
+	if ( is_singular( 'schedule' ) ) :
 
 		ob_start();
+
+		// Print ed survey callout.
+		wpcampus_print_ed_survey_callout();
+
+		$content .= ob_get_clean();
+
+	// Only add to the end of blog posts.
+	elseif ( is_singular( 'post' ) ) :
+
+		ob_start();
+
+		// Print ed survey callout.
+		wpcampus_print_ed_survey_callout();
 
 		?>
 		<hr />
