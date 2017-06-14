@@ -28,6 +28,7 @@ function wpc_2017_theme_setup() {
 	// Register menus.
 	register_nav_menus( array(
 		'primary'   => __( 'Primary Menu', 'wpcampus' ),
+		'banner'    => __( 'Banner Menu', 'wpcampus' ),
 		'footer'    => __( 'Footer Menu', 'wpcampus' ),
 	));
 
@@ -56,7 +57,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.13';
+	$wpcampus_version = '0.17';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );

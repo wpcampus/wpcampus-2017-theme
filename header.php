@@ -1,9 +1,3 @@
-<?php
-
-// URL for the tagboard.
-$tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
-
-?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
 <head>
@@ -60,12 +54,17 @@ $tweets_tagboard = 'https://tagboard.com/wpcampus/300756';
 
 		<div id="wpc-banner">
 			<div class="inside">
-				<ul class="menu">
-					<li><a href="https://wpcampus.org/get-involved/"><?php _e( 'Community', 'wpcampus' ); ?></a></li>
-					<li><a href="<?php echo $tweets_tagboard; ?>"><?php _e( 'Tweets', 'wpcampus' ); ?></a></li>
-					<li<?php echo is_page( 'contact' ) ? ' class="current"': null; ?>><a href="/contact/"><?php _e( 'Contact', 'wpcampus' ); ?></a></li>
-				</ul>
-				<?php wpc_print_social_media_icons( 'white' ); ?>
+				<?php
+
+				// Print banner menu.
+				wp_nav_menu( array(
+					'theme_location'    => 'banner',
+					'container'         => false,
+				));
+
+				wpc_print_social_media_icons( 'white' );
+
+				?>
 			</div>
 		</div>
 

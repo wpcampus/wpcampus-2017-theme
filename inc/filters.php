@@ -85,7 +85,6 @@ add_filter( 'excerpt_more', 'wpc_2017_filter_excerpt_more' );
  */
 function wpc_2017_add_to_content( $content ) {
 
-	// Only add to the end of events.
 	if ( is_singular( 'schedule' ) ) :
 
 		ob_start();
@@ -95,7 +94,6 @@ function wpc_2017_add_to_content( $content ) {
 
 		$content .= ob_get_clean();
 
-	// Only add to the end of blog posts.
 	elseif ( is_singular( 'post' ) ) :
 
 		ob_start();
