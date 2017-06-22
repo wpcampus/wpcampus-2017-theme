@@ -36,7 +36,7 @@
 		line-height: 1;
 		font-weight: 400;
 		text-transform: uppercase;
-		margin-top: 35px;
+		margin-top: 45px;
 	}
 
 	h3 {
@@ -52,7 +52,8 @@
 			display: block;
 		}
 
-		> *:last-child {
+		> *:last-child,
+		.wpc-sponsor-text *:last-child {
 			margin-bottom: 0;
 		}
 	}
@@ -94,6 +95,27 @@
 		}
 	}
 
+	&.sponsors-grad {
+
+		h2 {
+			font-size: 1.6rem;
+		}
+
+		h3 {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+
+		.wpc-sponsor {
+			border: 0;
+			padding: 0;
+
+			.wpc-sponsor-logo img {
+				width: 52%;
+			}
+		}
+	}
+
 	&.sponsors-undergrad {
 
 		h2 {
@@ -102,8 +124,8 @@
 
 		h3 {
 			clear: none;
-			font-size: 1.5rem;
-			line-height: 2rem;
+			font-size: 1.3rem;
+			line-height: 1.8rem;
 		}
 
 		.wpc-sponsor {
@@ -126,8 +148,6 @@
 					width: 300px;
 				}
 			}
-
-			//.wpc-sponsor-text
 		}
 	}
 }
@@ -534,8 +554,12 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 					width: 85%;
 				}
 
+				&.sponsor-grad {
+					width: 68%;
+				}
+
 				&.sponsor-undergrad {
-					width: 65%;
+					width: 50%;
 				}
 			}
 		}

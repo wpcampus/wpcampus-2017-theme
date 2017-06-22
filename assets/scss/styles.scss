@@ -39,6 +39,7 @@ body {
 }
 
 // Hide these elements visibly, but make sure they're still viewable by screen readers
+.screen-reader-text,
 .for-screen-reader {
     @include for-screen-reader();
 }

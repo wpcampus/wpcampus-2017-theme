@@ -1,10 +1,11 @@
 // Will convert the element to a screen reader element
 @mixin for-screen-reader() {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    position: absolute !important;
+    white-space: nowrap;
     height: 1px;
+    width: 1px;
     overflow: hidden;
 }
 
