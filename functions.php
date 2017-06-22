@@ -137,6 +137,11 @@ function wpc_has_sidebar() {
 		return false;
 	}
 
+	// Not on particular pages.
+	if ( is_page( 'watch' ) || is_page( 'session-survey' ) ) {
+		return false;
+	}
+
 	return true;
 }
 
@@ -455,9 +460,9 @@ function wpcampus_2017_print_article_meta() {
 		<span class="article-time"><?php wpcampus_2017_print_article_time(); ?></span>
 		<?php
 
-		if ( $categories ) {
+		if ( $categories ) :
 			?> - <span class="article-categories"><?php echo $categories; ?></span><?php
-		}
+		endif;
 
 		?>
 	</div>
