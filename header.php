@@ -121,7 +121,13 @@
 						echo wpcampus_get_breadcrumbs_html();
 					}
 
-					// Don't add to tickets section or blog post.
-					if ( ! is_singular( 'post' ) && ! is_singular( 'schedule' ) && ! is_page( 'tickets' ) && ! is_single( 'wordpress-in-education-survey' ) ) :
+					// Don't add to certain pages
+					if ( ! is_singular( 'post' )
+						&& ! is_singular( 'schedule' )
+					    && ! is_page( 'map' )
+					    && ! is_page( 'tickets' )
+					    && ! is_single( 'wordpress-in-education-survey' ) ) :
+
 						wpcampus_print_ed_survey_callout();
+
 					endif;
