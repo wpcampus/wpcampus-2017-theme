@@ -121,13 +121,13 @@
 						echo wpcampus_get_breadcrumbs_html();
 					}
 
-					// Don't add to certain pages
+					// Don't add callout to certain pages.
 					if ( ! is_singular( 'post' )
 						&& ! is_singular( 'schedule' )
 					    && ! is_page( 'map' )
 					    && ! is_page( 'tickets' )
 					    && ! is_single( 'wordpress-in-education-survey' ) ) :
 
-						wpcampus_print_ed_survey_callout();
+						wpcampus_2017_print_main_callout();
 
 					endif;

@@ -89,8 +89,8 @@ function wpc_2017_add_to_content( $content ) {
 
 		ob_start();
 
-		// Print ed survey callout.
-		wpcampus_print_ed_survey_callout();
+		// Print main callout.
+		wpcampus_2017_print_main_callout();
 
 		$content .= ob_get_clean();
 
@@ -98,8 +98,8 @@ function wpc_2017_add_to_content( $content ) {
 
 		ob_start();
 
-		// Print ed survey callout.
-		wpcampus_print_ed_survey_callout();
+		// Print main callout.
+		wpcampus_2017_print_main_callout();
 
 		?>
 		<hr />
