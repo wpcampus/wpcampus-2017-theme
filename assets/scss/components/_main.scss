@@ -29,14 +29,13 @@
 }
 
 .wpc-sponsors {
-	margin: 0 0 30px 0;
+	margin: 60px 0 30px 0;
 
 	h2 {
 		font-size: 2rem;
 		line-height: 1;
 		font-weight: 400;
 		text-transform: uppercase;
-		margin-top: 45px;
 	}
 
 	h3 {
@@ -99,6 +98,9 @@
 
 		h2 {
 			font-size: 1.6rem;
+			border-bottom: 1px solid #e3e3e3;
+			padding-bottom: 0.8em;
+			margin-bottom: 1.4em;
 		}
 
 		h3 {
@@ -108,10 +110,18 @@
 
 		.wpc-sponsor {
 			border: 0;
-			padding: 0;
+			border-bottom: 1px solid #e3e3e3;
+			padding: 0 0 2em 0;
+			margin: 0 0 2em 0;
 
 			.wpc-sponsor-logo img {
 				width: 52%;
+			}
+
+			&:last-child {
+				border-bottom: 0;
+				padding-bottom: 0;
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -120,6 +130,9 @@
 
 		h2 {
 			font-size: 1.6rem;
+			border-bottom: 1px solid #e3e3e3;
+			padding-bottom: 0.8em;
+			margin-bottom: 1.4em;
 		}
 
 		h3 {
