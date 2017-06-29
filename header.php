@@ -93,6 +93,7 @@
 						<li class="has-submenu<?php echo ( is_page( 'location' ) || is_page( 'hotels' ) || is_page( 'transportation' ) ) ? ' current': null; ?>">
 							<a href="/location/">Buffalo</a>
 							<ul class="submenu">
+								<li<?php echo is_page( 'location' ) ? ' class="current"': null; ?>><a href="/location/"><?php _e( 'Venue', 'wpcampus' ); ?></a></li>
 								<li<?php echo is_page( 'location/hotels' ) ? ' class="current"': null; ?>><a href="/location/hotels/"><?php _e( 'Hotels', 'wpcampus' ); ?></a></li>
 								<li<?php echo is_page( 'location/transportation' ) ? ' class="current"': null; ?>><a href="/location/transportation/"><?php _e( 'Transportation', 'wpcampus' ); ?></a></li>
 								<li<?php echo is_page( 'map' ) ? ' class="current"': null; ?>><a href="/map/"><?php _e( 'Map', 'wpcampus' ); ?></a></li>
