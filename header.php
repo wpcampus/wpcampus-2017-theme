@@ -3,8 +3,11 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php wp_head(); ?>
-	<!-- Facebook Pixel Code -->
+	<?php
+
+	wp_head();
+
+	/*<!-- Facebook Pixel Code -->
 	<script>
 		!function(f,b,e,v,n,t,s)
 		{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,11 +24,12 @@
 
 	do_action( 'wpcampus_facebook_pixel' );
 
-	?>
 	<noscript>
 		<img height="1" width="1" src="https://www.facebook.com/tr?id=1843264549234403&ev=PageView&noscript=1"/>
 	</noscript>
-	<!-- End Facebook Pixel Code -->
+	<!-- End Facebook Pixel Code -->*/
+
+	?>
 </head>
 <body <?php body_class(); ?>>
 	<a href="#wpc-main" id="skip-to-content" tabindex="1"><?php _e( 'Skip to Content', 'wpcampus' ); ?></a>
