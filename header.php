@@ -88,7 +88,7 @@
 								<li<?php echo is_post_type_archive( 'speakers' ) ? ' class="current"': null; ?>><a href="/speakers/"><?php _e( 'Speakers', 'wpcampus' ); ?></a></li>
 							</ul>
 						</li>
-						<li<?php echo is_page( 'tickets' ) ? ' class="current"': null; ?>><a href="/tickets/"><?php _e( 'Tickets', 'wpcampus' ); ?></a></li>
+						<li<?php echo is_page( 'watch' ) ? ' class="current"': null; ?>><a href="/watch/"><?php _e( 'Watch', 'wpcampus' ); ?></a></li>
 					</ul>
 				</div>
 				<a class="wpc-logo" href="/"><span class="for-screen-reader"><?php printf( __( '%1$s: Where %2$s Meets Higher Education - July 14-15, 2017 - Buffalo, New York', 'wpcampus' ), 'WPCampus', 'WordPress' ); ?></span></a>
@@ -131,6 +131,7 @@
 						&& ! is_singular( 'schedule' )
 					    && ! is_page( 'map' )
 					    && ! is_page( 'tickets' )
+					    && ! is_page( 'watch' )
 					    && ! is_single( 'wordpress-in-education-survey' ) ) :
 
 						wpcampus_2017_print_main_callout();
