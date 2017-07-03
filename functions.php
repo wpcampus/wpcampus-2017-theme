@@ -57,7 +57,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.2';
+	$wpcampus_version = '0.22';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
