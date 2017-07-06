@@ -254,6 +254,10 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 			color: #fff;
 		}
 
+		&.light-blue {
+			background: rgba($wpc-royal-blue, 0.1);
+		}
+
 		&.dark-blue {
 	        background: $wpc-dark-blue;
 	        color: #fff;
