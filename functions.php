@@ -57,7 +57,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.22';
+	$wpcampus_version = '0.24';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
@@ -146,11 +146,11 @@ function wpc_has_sidebar() {
 }
 
 /**
- * Prints list of social media icons.
+ * Get markup for list of social media icons.
  *
  * @param   $color - string - color of icon, black is default.
  */
-function wpc_print_social_media_icons( $color = 'black' ) {
+function wpc_get_social_media_icons( $color = 'black' ) {
 
 	// Get the theme directory.
 	$theme_dir = trailingslashit( get_template_directory_uri() );
@@ -160,16 +160,45 @@ function wpc_print_social_media_icons( $color = 'black' ) {
 		$color = "-{$color}";
 	}
 
-	?>
-	<ul class="social-media-icons">
-		<li><a class="slack" href="https://wpcampus.org/get-involved/"><img src="<?php echo $theme_dir; ?>assets/images/slack<?php echo $color; ?>.svg" alt="<?php printf( __( 'Join %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Slack' ); ?>" /></a></li>
-		<li><a class="twitter" href="https://twitter.com/wpcampusorg"><img src="<?php echo $theme_dir; ?>assets/images/twitter<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Twitter' ); ?>" /></a></li>
-		<li><a class="facebook" href="https://www.facebook.com/wpcampus"><img src="<?php echo $theme_dir; ?>assets/images/facebook<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Facebook' ); ?>" /></a></li>
-		<li><a class="youtube" href="https://www.youtube.com/wpcampusorg"><img src="<?php echo $theme_dir; ?>assets/images/youtube<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'YouTube' ); ?>" /></a></li>
-		<li><a class="lanyrd" href="http://lanyrd.com/2017/wpcampus/"><img src="<?php echo $theme_dir; ?>assets/images/lanyrd<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Lanyrd' ); ?>" /></a></li>
-		<li><a class="github" href="https://github.com/wpcampus/"><img src="<?php echo $theme_dir; ?>assets/images/github<?php echo $color; ?>.svg" alt="<?php printf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'GitHub' ); ?>" /></a></li>
-	</ul>
-	<?php
+	$social_media = array(
+		'slack' => array(
+			'href'  => 'https://wpcampus.org/get-involved/',
+			'label' => sprintf( __( 'Join %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Slack' ),
+		),
+		'twitter' => array(
+			'href'  => 'https://twitter.com/wpcampusorg',
+			'label' => sprintf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Twitter' ),
+		),
+		'facebook' => array(
+			'href'  => 'https://www.facebook.com/wpcampus',
+			'label' => sprintf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Facebook' ),
+		),
+		'youtube' => array(
+			'href'  => 'https://www.youtube.com/wpcampusorg',
+			'label' => sprintf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'YouTube' ),
+		),
+		'lanyrd' => array(
+			'href'  => 'http://lanyrd.com/2017/wpcampus/',
+			'label' => sprintf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'Lanyrd' ),
+		),
+		'github' => array(
+			'href'  => 'https://github.com/wpcampus/',
+			'label' => sprintf( __( 'Follow %1$s on %2$s', 'wpcampus' ), 'WPCampus', 'GitHub' ),
+		),
+	);
+
+	// Build the items output.
+	$social_items = array();
+	foreach ( $social_media as $key => $social ) {
+		$social_img = $theme_dir . "assets/images/{$key}{$color}.svg";
+		$social_items[] = sprintf( '<li><a class="%1$s" href="%2$s"><img src="%3$s" alt="%4$s" /></a></li>', $key, $social['href'], $social_img, $social['label'] );
+	}
+
+	if ( ! empty( $social_items ) ) {
+		return '<ul class="social-media-icons">' . implode( '', $social_items ) . '</ul>';
+	}
+
+	return null;
 }
 
 // Get the post type archive title

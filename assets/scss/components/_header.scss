@@ -85,6 +85,34 @@ body {
 		}
 	}
 
+	.social-media-icons {
+		@include reset-ul();
+		display: none;
+		overflow: auto;
+		text-align: center;
+		margin: 10px 0;
+
+		> li {
+			display: inline-block;
+			opacity: 0.75;
+
+			img {
+				display: block;
+				height: 25px;
+				margin: 0;
+			}
+
+			a {
+				display: block;
+				padding: 0 8px;
+			}
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
 	.menu {
 		@include reset-ul();
 		display: none;
@@ -171,6 +199,10 @@ body {
 			.close-menu-label {
 				display: block;
 			}
+		}
+
+		.social-media-icons {
+			display: block;
 		}
 	}
 
@@ -404,9 +436,9 @@ body {
 
 	.wpc-logo {
 		display: block;
-		background: url('../images/wpcampus-2017-logo-tagline-white.png') left center no-repeat;
-		background-size: $wpc-header-logo-width $wpc-header-logo-height;
-		width: $wpc-header-logo-width;
+		background: url('../images/wpcampus-2017-logo-tagline-white.png') center center no-repeat;
+		background-size: contain;
+		width: 100%;
 		height: $wpc-header-logo-height;
 		margin: 0 auto;
 		vertical-align: middle;
@@ -440,6 +472,11 @@ body {
 			width: $wpc-header-right-width;
 			padding-left: $wpc-header-logo-margin-side;
 			text-align: left;
+		}
+
+		.wpc-logo {
+			background-size: $wpc-header-logo-width $wpc-header-logo-height;
+			width: $wpc-header-logo-width;
 		}
 	}
 }

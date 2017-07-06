@@ -27,23 +27,26 @@
 	.wpc-notification-message {
 		text-align: left;
 		vertical-align: middle;
-		padding-left: $wpc-notif-icon-width + 20px;
-		position: relative;
 
-		&:before {
-			content: '';
-			display: inline-block;
-			line-height: inherit;
-			width: $wpc-notif-icon-width;
-			height: $wpc-notif-icon-height;
-			background: url( '../images/information.png' ) 0 0 no-repeat;
-			background-size: auto $wpc-notif-icon-height;
-			opacity: 0.7;
-			vertical-align: middle;
-			margin: (0 - ($wpc-notif-icon-width/2)) 0 0 0;
-			position: absolute;
-			left: 0;
-			top: 50%;
+		@media screen and (min-width: $wpc-menu-breakpoint) {
+			position: relative;
+			padding-left: $wpc-notif-icon-width + 20px;
+
+			&:before {
+				content: '';
+				display: inline-block;
+				line-height: inherit;
+				width: $wpc-notif-icon-width;
+				height: $wpc-notif-icon-height;
+				background: url( '../images/information.png' ) 0 0 no-repeat;
+				background-size: auto $wpc-notif-icon-height;
+				opacity: 0.7;
+				vertical-align: middle;
+				margin: (0 - ($wpc-notif-icon-width/2)) 0 0 0;
+				position: absolute;
+				left: 0;
+				top: 50%;
+			}
 		}
 	}
 
@@ -51,5 +54,11 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
+	}
+
+	@media screen and (max-width: ($wpc-menu-breakpoint - 1)) {
+		.inside {
+			padding: 0;
+		}
 	}
 }

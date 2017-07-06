@@ -34,7 +34,12 @@
 <body <?php body_class(); ?>>
 	<a href="#wpc-main" id="skip-to-content" tabindex="1"><?php _e( 'Skip to Content', 'wpcampus' ); ?></a>
 	<div id="wpc-wrapper">
+		<?php
 
+		// Get white social media icons.
+		$white_social_media_icons = wpc_get_social_media_icons( 'white' );
+
+		?>
 		<div id="wpc-2017-main-menu">
 			<div class="toggle-main-menu">
 				<div class="toggle-icon">
@@ -47,6 +52,9 @@
 			</div>
 			<?php
 
+			// Print social media icons.
+			echo $white_social_media_icons;
+
 			// Print main menu.
 			wp_nav_menu( array(
 				'theme_location'    => 'primary',
@@ -55,7 +63,6 @@
 
 			?>
 		</div>
-
 		<div id="wpc-banner">
 			<div class="inside">
 				<?php
@@ -66,7 +73,8 @@
 					'container'         => false,
 				));
 
-				wpc_print_social_media_icons( 'white' );
+				// Print social media icons.
+				echo $white_social_media_icons;
 
 				?>
 			</div>
