@@ -3,6 +3,11 @@
 // Include filters.
 require_once( STYLESHEETPATH . '/inc/filters.php' );
 
+// Include admin file.
+if ( is_admin() ) {
+	require_once( STYLESHEETPATH . '/inc/admin.php' );
+}
+
 /**
  * Set up the theme.
  */
@@ -132,13 +137,21 @@ function wpc_get_current_sidebar() {
  */
 function wpc_has_sidebar() {
 
-	// Not on our map page.
-	if ( is_page_template( 'template-map.php' ) ) {
-		return false;
+	// Check the layout setting.
+	$post_id = get_the_ID();
+	if ( $post_id ) {
+
+		// Get the layout setting.
+		$layout = get_post_meta( $post_id, 'wpc_2017_layout', true );
+
+		// If full width, we don't want the sidebar.
+		if ( 'fullwidth' == $layout ) {
+			return false;
+		}
 	}
 
-	// Not on particular pages.
-	if ( is_page( 'watch' ) || is_page( 'session-survey' ) ) {
+	// Not on our map page.
+	if ( is_page_template( 'template-map.php' ) ) {
 		return false;
 	}
 
