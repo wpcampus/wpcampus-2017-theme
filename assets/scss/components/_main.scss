@@ -477,12 +477,18 @@ body.single-schedule #wpc-main h1 .wpc-event-type {
 
 			&.columns.two {
 				overflow: auto;
-				margin-left: 1.25rem;
 
 				li {
-					float: left;
-					width: 50%;
 					list-style-position: inside;
+				}
+
+				@media screen and (min-width: $medium-up) {
+					margin-left: 1.25rem;
+
+					li {
+						float: left;
+						width: 50%;
+					}
 				}
 			}
 		}
