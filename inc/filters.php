@@ -1,6 +1,32 @@
 <?php
 
 /**
+ * Adjust queries
+ */
+function wpc_2017_adjust_queries( $query ) {
+
+	// Don't run in the admin.
+	if ( is_admin() ) {
+		return;
+	}
+
+	// Only for the main query.
+	if ( ! $query->is_main_query() ) {
+		return;
+	}
+
+	/*
+	 * For now, get all announcements.
+	 *
+	 * @TODO add pagination.
+	 */
+	if ( is_home() ) {
+		$query->set( 'nopaging', true );
+	}
+}
+add_action( 'pre_get_posts', 'wpc_2017_adjust_queries' );
+
+/**
  * Filtering the title.
  */
 function wpc_2017_filter_post_title( $post_title, $post_id ) {
