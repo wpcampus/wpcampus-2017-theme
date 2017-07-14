@@ -86,6 +86,27 @@ function wpc_2017_enqueue_scripts() {
 	/*if ( is_page_template( 'template-map.php' ) ) {
 		wp_enqueue_script( 'wpcampus-map', $wpcampus_dir . 'assets/js/wpcampus-map.min.js', array( 'jquery' ), null, true );
 	}*/
+
+	// For the livestream page
+	if ( is_page_template( 'template-livestream.php' ) ) {
+
+		// Enqueue the schedule script
+		wp_enqueue_script( 'wpcampus-2017-livestream', $wpcampus_dir . 'assets/js/wpcampus-2017-livestream.min.js', array(
+			'jquery',
+			'handlebars',
+		), false, true );
+
+		// Get the API route
+		$wp_rest_api_route = function_exists( 'rest_get_url_prefix' ) ? rest_get_url_prefix() : '';
+		if ( ! empty( $wp_rest_api_route ) ) {
+			$wp_rest_api_route = "/{$wp_rest_api_route}/wp/v2/";
+		}
+
+		// Pass some data
+		wp_localize_script( 'wpcampus-2017-livestream', 'wpc_ls', array(
+			'wp_api_route'  => $wp_rest_api_route,
+		));
+	}
 }
 add_action( 'wp_enqueue_scripts', 'wpc_2017_enqueue_scripts', 100 );
 
