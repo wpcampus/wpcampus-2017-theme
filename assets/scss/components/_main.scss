@@ -723,3 +723,11 @@ body.page-template-template-map {
 		}
 	}
 }
+
+@media screen and (min-width: 620px) {
+
+	// Tweak any callouts next to the schedule meta.
+	#conf-sch-single-meta + .callout {
+		width: 450px;
+	}
+}
