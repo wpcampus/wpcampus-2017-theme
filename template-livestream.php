@@ -31,11 +31,6 @@ function wpc_2017_add_livestream_template( $content ) {
 	// Add the schedule holder
 	?>
 	<div id="wpcampus-livestream"></div>
-
-	<div class="callout light-blue">
-		<p><strong>Share your experience:</strong> Follow along, and share your own experience, on social media using <a href="https://twitter.com/search?q=wpcampus&amp;src=typd">our #WPCampus hashtag</a> and in our Slack channel.</p>
-		<p><strong>If you're NOT in our Slack channel:</strong> <a href="https://wpcampus.org/get-involved/">Join the WPCampus Slack channel</a></p>
-	</div>
 	<?php
 
 	return $content . ob_get_clean();
