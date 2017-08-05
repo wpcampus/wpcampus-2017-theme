@@ -31,6 +31,12 @@ function wpc_2017_add_livestream_template( $content ) {
 	// Add the schedule holder
 	?>
 	<div id="wpcampus-livestream"></div>
+
+	<div class="callout light-blue">
+		<p><strong>Share your experience:</strong> Follow along, and share your own experience, on social media using <a href="https://twitter.com/search?q=wpcampus&amp;src=typd">our #WPCampus hashtag</a>.</p>
+		<p><strong>If you're in our Slack channel:</strong> <a href="https://wordcampus.slack.com/messages/C503KBR27/">#attendees-wpc17</a> is the channel for attendees in person to chat. <a href="https://wordcampus.slack.com/messages/C65Q1LHB9/">#discuss-wpc17</a> is the channel for folks in attendance, or <a href="https://2017.wpcampus.org/watch/">watching via livestream</a>, to discuss sessions.</p>
+		<p><strong>If you're NOT in our Slack channel:</strong> <a href="https://wpcampus.org/get-involved/">Join the WPCampus Slack channel</a></p>
+	</div>
 	<?php
 
 	return $content . ob_get_clean();
