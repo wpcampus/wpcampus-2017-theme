@@ -42,9 +42,21 @@
 				// Go through each item.
 				$.each( $schedule_items, function( $index, $item ) {
 
-					// Render the templates.
-					$livestream_html += $wpc_ls_templ( $item );
+					/*
+					 * Only active sessions will have a URL
+					 * that's either a string or null.
+					 *
+					 * Inactive sessions wil be marked as false.
+					 *
+					 * @TODO this could be a problem for schedule
+					 * items that aren't sessions, like "Lunch".
+					 */
+					if ( $item.session_livestream_url !== false ) {
 
+						// Render the templates.
+						$livestream_html += $wpc_ls_templ( $item );
+
+					}
 				});
 
 				// Add a header.
@@ -52,6 +64,7 @@
 					$livestream_html = '<p><em>' + wpc_ls.messages.no_streams + '</em></p>';
 				}
 
+				// Replace the container with the template markup.
 				$wpc_ls_container.html( $livestream_html );
 
 			}

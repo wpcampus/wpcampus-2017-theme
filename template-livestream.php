@@ -16,7 +16,7 @@ function wpc_2017_add_livestream_template( $content ) {
 				<div class="callout wpc-ls-callout"><a href="{{session_livestream_url}}" target="_blank">Watch the livestream</a></div>
 			{{/session_livestream_url}}
 			{{^session_livestream_url}}
-				<p><em><strong>This event does not have a livestream.</strong></em></p>
+				<div class="callout wpc-ls-callout"><em><strong>This event does not have a livestream.</strong></em></div>
 			{{/session_livestream_url}}
 			{{#if event_speakers}}<div class="event-speakers">{{#each event_speakers}}{{#unless @first}}, {{/unless}}<span class="event-speaker">{{post_title}}</span>{{/each}}</div>{{/if}}
 			<div class="event-dt">{{event_time_display}}</div>
