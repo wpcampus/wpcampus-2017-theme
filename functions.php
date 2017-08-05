@@ -62,7 +62,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.3';
+	$wpcampus_version = '0.31';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
@@ -84,17 +84,14 @@ function wpc_2017_enqueue_scripts() {
 
 	// Add our iframe script.
 	/*if ( is_page_template( 'template-map.php' ) ) {
-		wp_enqueue_script( 'wpcampus-map', $wpcampus_dir . 'assets/js/wpcampus-map.min.js', array( 'jquery' ), null, true );
+		wp_enqueue_script( 'wpcampus-map', $wpcampus_dir . 'assets/js/wpcampus-map.min.js', array( 'jquery' ), $wpcampus_version, true );
 	}*/
 
 	// For the livestream page
 	if ( is_page_template( 'template-livestream.php' ) ) {
 
 		// Enqueue the schedule script
-		wp_enqueue_script( 'wpcampus-2017-livestream', $wpcampus_dir . 'assets/js/wpcampus-2017-livestream.min.js', array(
-			'jquery',
-			'handlebars',
-		), false, true );
+		wp_enqueue_script( 'wpcampus-livestream', $wpcampus_dir . 'assets/js/wpcampus-livestream.min.js', array( 'jquery', 'handlebars' ), $wpcampus_version, true );
 
 		// Get the API route
 		$wp_rest_api_route = function_exists( 'rest_get_url_prefix' ) ? rest_get_url_prefix() : '';
@@ -103,8 +100,11 @@ function wpc_2017_enqueue_scripts() {
 		}
 
 		// Pass some data
-		wp_localize_script( 'wpcampus-2017-livestream', 'wpc_ls', array(
+		wp_localize_script( 'wpcampus-livestream', 'wpc_ls', array(
 			'wp_api_route'  => $wp_rest_api_route,
+			'messages'      => array(
+				'no_streams' => __( 'There are no active livestreams.', 'wpcampus' ),
+			),
 		));
 	}
 }

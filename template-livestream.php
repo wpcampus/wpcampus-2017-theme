@@ -9,10 +9,15 @@ function wpc_2017_add_livestream_template( $content ) {
 
 	// Add the template
 	?>
-	<script id="wpcampus-2017-livestream-template" type="text/x-handlebars-template">
+	<script id="wpcampus-livestream-template" type="text/x-handlebars-template">
 		<div id="wpc-ls-event-{{id}}" class="wpc-ls{{#event_types}} {{.}}{{/event_types}}">
-			<h3 class="event-title"><strong>{{title.rendered}}</strong></h3>
-			<div class="callout wpc-ls-callout"><a href="{{session_livestream_url}}" target="_blank">Watch the livestream</a></div>
+			<h3 class="event-title"><strong>{{{title.rendered}}}</strong></h3>
+			{{#session_livestream_url}}
+				<div class="callout wpc-ls-callout"><a href="{{session_livestream_url}}" target="_blank">Watch the livestream</a></div>
+			{{/session_livestream_url}}
+			{{^session_livestream_url}}
+				<p><em><strong>This event does not have a livestream.</strong></em></p>
+			{{/session_livestream_url}}
 			{{#if event_speakers}}<div class="event-speakers">{{#each event_speakers}}{{#unless @first}}, {{/unless}}<span class="event-speaker">{{post_title}}</span>{{/each}}</div>{{/if}}
 			<div class="event-dt">{{event_time_display}}</div>
 			<a href="{{link}}">View session details</a>
@@ -25,7 +30,7 @@ function wpc_2017_add_livestream_template( $content ) {
 
 	// Add the schedule holder
 	?>
-	<div id="wpcampus-2017-livestream"></div>
+	<div id="wpcampus-livestream"></div>
 	<?php
 
 	return $content . ob_get_clean();
