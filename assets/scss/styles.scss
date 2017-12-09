@@ -53,30 +53,6 @@ body {
 	}
 }
 
-// Stylize the "Skip To Content" link
-#skip-to-content {
-    display: block;
-    position: fixed;
-    left: -1000px;
-    top: -1000px;
-    width: 0;
-    height: 0;
-    text-align: left;
-    overflow: hidden;
-    z-index: 1000000;
-
-    &:focus, &:active, &:hover {
-        left: 0;
-        top: 0;
-        width: auto;
-        height: auto;
-        overflow: visible;
-        background: $wpc-light-gray;
-        color: #000;
-        padding: 10px;
-    }
-}
-
 // Images
 img {
 	display: block;

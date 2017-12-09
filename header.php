@@ -32,7 +32,16 @@
 	?>
 </head>
 <body <?php body_class(); ?>>
-	<a href="#wpc-main" id="skip-to-content" tabindex="1"><?php _e( 'Skip to Content', 'wpcampus' ); ?></a>
+	<?php
+
+	// Print network banner.
+	if ( function_exists( 'wpcampus_print_network_banner' ) ) {
+		wpcampus_print_network_banner( array(
+			'skip_nav_id' => 'wpc-main',
+		));
+	}
+
+	?>
 	<div id="wpc-wrapper">
 		<?php
 

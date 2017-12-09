@@ -16,6 +16,11 @@ function wpc_2017_theme_setup() {
 	// Make theme available for translation.
 	load_theme_textdomain( 'wpcampus', get_stylesheet_directory() . '/languages' );
 
+	// Enable network banner.
+	if ( function_exists( 'wpcampus_enable_network_banner' ) ) {
+		wpcampus_enable_network_banner();
+	}
+
 	// Add default posts and comments RSS feed links to head.
 	//add_theme_support( 'automatic-feed-links' );
 
@@ -36,7 +41,6 @@ function wpc_2017_theme_setup() {
 		'banner'    => __( 'Banner Menu', 'wpcampus' ),
 		'footer'    => __( 'Footer Menu', 'wpcampus' ),
 	));
-
 }
 add_action( 'after_setup_theme', 'wpc_2017_theme_setup' );
 
@@ -62,7 +66,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.31';
+	$wpcampus_version = '0.33';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
