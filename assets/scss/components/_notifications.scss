@@ -28,6 +28,10 @@
 		text-align: left;
 		vertical-align: middle;
 
+		p {
+			margin-bottom: 0;
+		}
+
 		@media screen and (min-width: $wpc-menu-breakpoint) {
 			position: relative;
 			padding-left: $wpc-notif-icon-width + 20px;
