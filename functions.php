@@ -21,6 +21,11 @@ function wpc_2017_theme_setup() {
 		wpcampus_enable_network_banner();
 	}
 
+	// Enable network footer.
+	if ( function_exists( 'wpcampus_enable_network_footer' ) ) {
+		wpcampus_enable_network_footer();
+	}
+
 	// Add default posts and comments RSS feed links to head.
 	//add_theme_support( 'automatic-feed-links' );
 
