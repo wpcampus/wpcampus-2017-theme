@@ -66,7 +66,7 @@ add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.33';
+	$wpcampus_version = '0.34';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
@@ -84,7 +84,7 @@ function wpc_2017_enqueue_scripts() {
 	wp_register_script( 'modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' );
 
 	// Enqueue the main script - goes in footer.
-	wp_enqueue_script( 'wpcampus', $wpcampus_dir . 'assets/js/wpcampus.min.js', array( 'jquery', 'modernizr' ), $wpcampus_version, true );
+	wp_enqueue_script( 'wpcampus', $wpcampus_dir . 'assets/js/wpcampus.min.js', array( 'jquery', 'modernizr', 'wpc-network-toggle-menu' ), $wpcampus_version, true );
 
 	// Add our iframe script.
 	/*if ( is_page_template( 'template-map.php' ) ) {

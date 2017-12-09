@@ -50,7 +50,7 @@
 
 		?>
 		<div id="wpc-2017-main-menu">
-			<div class="toggle-main-menu">
+			<button class="wpc-toggle-menu" data-toggle="wpc-2017-main-menu" aria-label="<?php _e( 'Toggle menu', 'wpcampus' ); ?>">
 				<div class="toggle-icon">
 					<div class="bar one"></div>
 					<div class="bar two"></div>
@@ -58,7 +58,7 @@
 				</div>
 				<div class="open-menu-label"><?php _e( 'Menu', 'wpcampus' ); ?></div>
 				<div class="close-menu-label"><?php _e( 'Close', 'wpcampus' ); ?></div>
-			</div>
+			</button>
 			<?php
 
 			// Print social media icons.
