@@ -1,84 +1,92 @@
-// Require all the things (that we need)
-var gulp = require('gulp');
-var watch = require('gulp-watch');
-var minify = require('gulp-minify');
-var sass = require('gulp-sass');
-var rename = require("gulp-rename");
-var autoprefixer = require('gulp-autoprefixer');
-var normalize = require('node-normalize-scss').includePaths;
-var bourbon = require('bourbon').includePaths;
-var neat = require('bourbon-neat').includePaths;
-var phpcs = require('gulp-phpcs');
+const autoprefixer = require('gulp-autoprefixer');
+const bourbon = require('bourbon').includePaths;
+const cleanCSS = require('gulp-clean-css');
+const gulp = require('gulp');
+const mergeMediaQueries = require('gulp-merge-media-queries');
+const minify = require('gulp-minify');
+const neat = require('bourbon-neat').includePaths;
+const normalize = require('node-normalize-scss').includePaths;
+const notify = require('gulp-notify');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const shell = require('gulp-shell');
 
-// Define our SASS includes
-var sassIncludes = [].concat(normalize,bourbon,neat);
+const sassIncludes = [].concat(normalize,bourbon,neat);
 
-// Define the source paths for each file type
-var src = {
-    scss: ['assets/scss/**/*','!assets/scss/components'],
-	js: ['assets/js/**/*','!assets/js/*.min.js'],
-	php: ['**/*.php','!vendor/**','!node_modules/**']
+// Define the source paths for each file type.
+const src = {
+	js: ['assets/js/wpcampus.js','assets/js/wpcampus-livestream.js','assets/js/wpcampus-map.js'],
+	php: ['**/*.php','!vendor/**','!node_modules/**'],
+	sass: ['assets/scss/**/*','!assets/scss/components']
 };
 
-// Define the destination paths for each file type
-var dest = {
-	scss: 'assets/css',
-	js: 'assets/js'
+// Define the destination paths for each file type.
+const dest = {
+	js: 'assets/js',
+	sass: 'assets/css'
 };
 
-// Sass is pretty awesome, right?
-gulp.task('sass',function() {
-    return gulp.src(src.scss)
-        .pipe(sass({
+// Compile our JS.
+gulp.task('js',function() {
+	gulp.src(src.js)
+		.pipe(minify({
+			mangle: false,
+			ext: {
+				min: '.min.js'
+			}
+		}))
+		.pipe(gulp.dest(dest.js))
+		.pipe(notify('WPC 2017 JS compiled'));
+});
+
+// Compile our SASS.
+gulp.task('sass', function() {
+	return gulp.src(src.sass)
+		.pipe(sass({
 			includePaths: sassIncludes,
 			outputStyle: 'compressed'
-		})
-		.on('error',sass.logError))
-        .pipe(autoprefixer({
-        	browsers: ['last 2 versions'],
+		}).on('error', sass.logError))
+		.pipe(mergeMediaQueries())
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-	    .pipe(rename({
-	    	suffix: '.min'
-	    }))
-		.pipe(gulp.dest(dest.scss));
-});
-
-// We don't need this... yet
-gulp.task('js',function() {
-    gulp.src(src.js)
-        .pipe(minify({
-            mangle: false,
-	        ext:{
-		        min:'.min.js'
-	        }
-        }))
-        .pipe(gulp.dest(dest.js))
-});
-
-// Sniff our code
-gulp.task('php',function () {
-	return gulp.src(src.php)
-		.pipe(phpcs({
-			bin: './vendor/bin/phpcs',
-			standard: 'WordPress-Core'
+		.pipe(cleanCSS({
+			compatibility: 'ie8'
 		}))
-		// Log all problems that was found
-		.pipe(phpcs.reporter('log'));
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(dest.sass))
+		.pipe(notify('WPC 2017 SASS compiled'));
 });
 
-// Let's get this party started
-gulp.task('default',['compile','test']);
+// "Sniff" our PHP.
+gulp.task('php', function() {
+	// TODO: Clean up. Want to run command and show notify for sniff errors.
+	return gulp.src('index.php', {read: false})
+		.pipe(shell(['composer sniff'], {
+			ignoreErrors: true,
+			verbose: false
+		}))
+		.pipe(notify('WPC 2017 PHP sniffed'), {
+			onLast: true,
+			emitError: true
+		});
+});
 
-// Compile all the things
-gulp.task('compile',['sass','js']);
-
-// Test all the things
+// Test our files.
 gulp.task('test',['php']);
 
-// I've got my eyes on you(r file changes)
+// Compile all the things.
+gulp.task('compile',['sass','js']);
+
+// I've got my eyes on you(r file changes).
 gulp.task('watch',function() {
-	gulp.watch(src.scss,['sass']);
 	gulp.watch(src.js,['js']);
 	gulp.watch(src.php,['php']);
+	gulp.watch(src.sass,['sass']);
 });
+
+// Let's get this party started.
+gulp.task('default',['compile','test']);
