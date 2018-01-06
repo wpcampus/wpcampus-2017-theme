@@ -1,4 +1,5 @@
 # WPCampus 2017 - WordPress Theme
+
 The WordPress theme for the 2017 WPCampus conference.
 
 ## Disclaimer

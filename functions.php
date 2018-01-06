@@ -309,7 +309,7 @@ function wpcampus_get_breadcrumbs_html() {
 			if ( is_post_type_archive( 'speakers' ) ) {
 				$breadcrumbs[] = array(
 					'url'   => '/schedule/',
-					'label' => 'Schedule',
+					'label' => __( 'Schedule', 'wpcampus' ),
 				);
 			}
 
