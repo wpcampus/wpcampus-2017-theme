@@ -135,7 +135,7 @@
 		<?php get_template_part( 'partials/hero' ); ?>
 		<div id="wpc-main">
 			<div class="inside">
-				<div class="wpc-content">
+				<div class="wpc-content" role="main">
 					<?php
 
 					// Print breadcrumbs.
