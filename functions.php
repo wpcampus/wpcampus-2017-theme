@@ -68,10 +68,19 @@ function wpc_2017_register_sidebars() {
 add_action( 'widgets_init', 'wpc_2017_register_sidebars' );
 
 /**
+ * Make sure the Open Sans
+ * font weights we need are added.
+ */
+function wpc_2017_load_open_sans_weights( $weights ) {
+	return array_merge( $weights, array( 300, 400, 600 ) );
+}
+add_filter( 'wpcampus_open_sans_font_weights', 'wpc_2017_load_open_sans_weights' );
+
+/**
  * Setup styles and scripts.
  */
 function wpc_2017_enqueue_scripts() {
-	$wpcampus_version = '0.34';
+	$wpcampus_version = '0.35';
 
 	// Get the directory.
 	$wpcampus_dir = trailingslashit( get_stylesheet_directory_uri() );
@@ -79,11 +88,9 @@ function wpc_2017_enqueue_scripts() {
 	// Load the conference schedule icons.
 	wp_enqueue_style( 'conf-schedule-icons' );
 
-	// Load Fonts.
-	wp_enqueue_style( 'wpcampus-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:600,400,300' );
-
 	// Enqueue the base styles.
-	wp_enqueue_style( 'wpcampus', $wpcampus_dir . 'assets/css/styles.min.css', array( 'wpcampus-fonts' ), $wpcampus_version, 'all' );
+	// wpc-fonts-open-sans is registered in the network plugin.
+	wp_enqueue_style( 'wpcampus', $wpcampus_dir . 'assets/css/styles.min.css', array( 'wpc-fonts-open-sans' ), $wpcampus_version, 'all' );
 
 	// Register modernizr.
 	wp_register_script( 'modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' );
