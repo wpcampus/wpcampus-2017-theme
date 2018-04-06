@@ -1,6 +1,6 @@
 <?php
 
-// Template Name: WPCampus 2017 Map
+// Template Name: WPCampus 2017: Map
 
 get_header();
 

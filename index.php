@@ -32,4 +32,6 @@ if ( have_posts() ) :
 	endwhile;
 endif;
 
+do_action( 'wpc_add_after_content' );
+
 get_footer();

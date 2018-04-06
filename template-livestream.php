@@ -1,6 +1,6 @@
 <?php
 
-// Template Name: WPCampus 2017 Livestream
+// Template Name: WPCampus 2017: Livestream
 
 // Add livestream URLs to the page
 function wpc_2017_add_livestream_template( $content ) {
