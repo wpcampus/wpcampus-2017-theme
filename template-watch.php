@@ -3,8 +3,8 @@
 // Template Name: WPCampus 2017: Watch
 
 function wpc_2017_enable_watch_videos() {
-	if ( function_exists( 'wpcampus_enable_watch_videos' ) ) {
-		wpcampus_enable_watch_videos();
+	if ( function_exists( 'wpcampus_network_enable' ) ) {
+		wpcampus_network_enable( 'videos' );
 	}
 }
 add_action( 'get_header', 'wpc_2017_enable_watch_videos' );
@@ -14,9 +14,10 @@ add_action( 'get_header', 'wpc_2017_enable_watch_videos' );
  */
 function wpc_2017_print_watch_videos_content( $content ) {
 	if ( function_exists( 'wpcampus_print_watch_videos' ) ) {
-		wpcampus_print_watch_videos( array(
-			'playlist'   => 'wpcampus-2017',
-			'show_event' => false,
+		wpcampus_print_watch_videos( 'wpc-videos', array(
+			'playlist'     => 'wpcampus-2017',
+			'show_event'   => false,
+			'show_filters' => false,
 		));
 	}
 }

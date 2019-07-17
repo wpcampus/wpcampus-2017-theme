@@ -48,7 +48,8 @@ function wpc_2017_filter_post_title( $post_title, $post_id ) {
 
 	return $post_title;
 }
-add_filter( 'the_title', 'wpc_2017_filter_post_title', 100, 2 );
+// Didn't need after schedule was updated
+//add_filter( 'the_title', 'wpc_2017_filter_post_title', 100, 2 );
 
 /**
  * Tracking ticket purchase from Facebook.

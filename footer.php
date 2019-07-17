@@ -2,8 +2,12 @@
 				<?php get_sidebar(); ?>
 			</div> <!-- .inside -->
 		</div> <!-- #wpc-main -->
-		<?php /* get_template_part( 'partials/get-involved' ); */ ?>
-		<div id="wpc-mailing-list">
+		<?php
+
+		// get_template_part( 'partials/get-involved' );
+
+		?>
+		<div role="complementary" id="wpc-mailing-list">
 			<div class="inside">
 				<h2><?php printf( __( 'Subscribe to %s', 'wpcampus' ), 'WPCampus' ); ?></h2>
 				<p><?php printf( __( 'Enter your email address to receive notifications about %s.', 'wpcampus' ), 'WPCampus' ); ?></p>
@@ -11,6 +15,10 @@
 			</div>
 		</div>
 		<?php
+
+		if ( function_exists( 'wpcampus_print_network_coc' ) ) {
+			wpcampus_print_network_coc();
+		}
 
 		// Print network footer.
 		if ( function_exists( 'wpcampus_print_network_footer' ) ) {

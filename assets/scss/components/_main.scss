@@ -222,7 +222,7 @@
 	}
 }
 
-#conference-schedule-container {
+/*#conference-schedule-container {
 
 	.schedule-event {
 
@@ -232,6 +232,20 @@
 				text-transform: uppercase;
 				opacity: 0.7;
 				font-weight: 600;
+			}
+		}
+	}
+}*/
+
+@media screen and (min-width: 920px) {
+	#conf-sch-event-794 {
+
+		.event-children {
+			display: block;
+
+			.schedule-event {
+				display: block;
+				width: auto;
 			}
 		}
 	}

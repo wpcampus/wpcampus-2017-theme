@@ -1,4 +1,4 @@
-<div id="wpc-hero">
+<div role="complementary" id="wpc-hero">
 	<div class="inside">
 		<div id="wpc-hero-bg"></div>
 		<?php

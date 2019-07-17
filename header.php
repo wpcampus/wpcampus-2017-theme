@@ -49,7 +49,7 @@
 		$white_social_media_icons = wpc_get_social_media_icons( 'white' );
 
 		?>
-		<div id="wpc-2017-main-menu">
+		<div role="navigation" id="wpc-2017-main-menu">
 			<button class="wpc-toggle-menu" data-toggle="wpc-2017-main-menu" aria-label="<?php _e( 'Toggle menu', 'wpcampus' ); ?>">
 				<div class="toggle-icon">
 					<div class="bar one"></div>
@@ -72,7 +72,7 @@
 
 			?>
 		</div>
-		<div id="wpc-banner">
+		<div role="navigation" id="wpc-banner">
 			<div class="inside">
 				<?php
 
@@ -89,9 +89,9 @@
 			</div>
 		</div>
 
-		<div id="wpc-header">
+		<div role="banner" id="wpc-header">
 			<div class="inside">
-				<div class="wpc-header-menu wpc-header-left">
+				<div role="navigation" class="wpc-header-menu wpc-header-left">
 					<ul class="menu">
 						<li class="has-submenu<?php echo is_page( 'about' ) || is_home() ? ' current': null; ?>">
 							<a href="/about/"><?php _e( 'About', 'wpcampus' ); ?></a>
@@ -109,7 +109,7 @@
 					</ul>
 				</div>
 				<a class="wpc-logo" href="/"><span class="for-screen-reader"><?php printf( __( '%1$s: Where %2$s Meets Higher Education - July 14-15, 2017 - Buffalo, New York', 'wpcampus' ), 'WPCampus', 'WordPress' ); ?></span></a>
-				<div class="wpc-header-menu wpc-header-right">
+				<div role="navigation" class="wpc-header-menu wpc-header-right">
 					<ul class="menu">
 						<li class="has-submenu<?php echo ( is_page( 'location' ) || is_page( 'hotels' ) || is_page( 'transportation' ) ) ? ' current': null; ?>">
 							<a href="/location/">Buffalo</a>
@@ -133,9 +133,9 @@
 			</div>
 		</div>
 		<?php get_template_part( 'partials/hero' ); ?>
-		<div id="wpc-main">
+		<div role="main" id="wpc-main">
 			<div class="inside">
-				<div class="wpc-content" role="main">
+				<div class="wpc-content">
 					<?php
 
 					// Print breadcrumbs.
