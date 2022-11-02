@@ -20,11 +20,11 @@
   "devDependencies": {
     "bourbon": "^4.2.7",
     "bourbon-neat": "^1.8.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-clean-css": "^3.9.0",
     "gulp-merge-media-queries": "^0.2.1",
-    "gulp-minify": "0.0.13",
+    "gulp-minify": "3.1.0",
     "gulp-notify": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
